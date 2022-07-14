@@ -20,10 +20,12 @@ body{
 a{
     text-decoration: none;
 }
+#navAlpinas {
+    background-color: #ECAC86 ;
+}
 
 // navbar
 nav{
-  
     .navContainer{
         
         border-bottom: 2px solid black;
@@ -48,25 +50,21 @@ nav{
            font-weight:500;
        }
 }
+
+// alpinas estilo index
+
+#introAlpinas{
+    background-image: url('/3coloresimagenfondo.png');
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 // 
 // mainIndex
 main{
-    #mobileHeroText{
-        .mobileH1{
-            color: $color3  ;
-            font-size: $textSize3;
-            line-height: 1em;
-        }
-        .ctaPropiedades{
-            font-size: 24px;
-            color: $color2;
-        }
-        .contactoHero{
-            background-color: $color2;
-            color: $textColor2;
-            font-size: 20px;
-        }
-    }
+
+  
  
     #desktopHeroText{
         .desktopH1{

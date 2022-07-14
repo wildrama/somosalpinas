@@ -1,13 +1,4 @@
-// continuar proceso de login, y autorizacion. Armar el carrusel dinamico y la suba de imagenes.
-// corregir errores de interfaz
-// poner app en produccion
-// deploy en cloud server.
-// COBRAR
-
-
-// if(process.env.NODE_ENV !== "production") {
-//   require('dotenv').config();
-// }
+// app alpinas
 const express = require('express');
 const app = express();
 
@@ -35,7 +26,7 @@ const ExpressError=require('./utils/ExpressError');
 const session =  require('express-session')
 
 const sessionConfig = {
-  secret: 'this!',
+  secret: 'rb78br87',
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -116,21 +107,20 @@ app.use((req, res, next) => {
 
 // Routes for admin
 app.use('/administrador',admRoutes);
-app.use('/',userUiRoutes);
 app.use('/', rutasUsuario )
-app.use('/categorias',userUiRoutes);
+// app.use('/categorias',categoriasRoutes);
 
 
-// routes for regular user
-app.use('/categorias',categoriasRoutes);
+// // routes for regular user
+// app.use('/categorias',categoriasRoutes);
 
-app.use('/categorias/modo-laser',modoLaserRoutes);
-app.use('/categorias/pizarras',pizarrasRoutes);
-app.use('/categorias/ABC',modoLaserRoutes);
-app.use('/categorias/memotest',modoLaserRoutes);
-app.use('/categorias/sellos',modoLaserRoutes);
-app.use('/categorias/domino',modoLaserRoutes);
-app.use('/categorias/deYapa',modoLaserRoutes);
+// app.use('/categorias/modo-laser',modoLaserRoutes);
+// app.use('/categorias/pizarras',pizarrasRoutes);
+// app.use('/categorias/ABC',modoLaserRoutes);
+// app.use('/categorias/memotest',modoLaserRoutes);
+// app.use('/categorias/sellos',modoLaserRoutes);
+// app.use('/categorias/domino',modoLaserRoutes);
+// app.use('/categorias/deYapa',modoLaserRoutes);
 
 
 // RENDER HOME

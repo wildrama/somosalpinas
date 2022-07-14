@@ -6,6 +6,10 @@ a {
   text-decoration: none;
 }
 
+#navAlpinas {
+  background-color: #ECAC86;
+}
+
 nav .navContainer {
   border-bottom: 2px solid black;
 }
@@ -26,21 +30,11 @@ nav .linkActivo {
   font-weight: 500;
 }
 
-main #mobileHeroText .mobileH1 {
-  color: #F8C301;
-  font-size: 36px;
-  line-height: 1em;
-}
-
-main #mobileHeroText .ctaPropiedades {
-  font-size: 24px;
-  color: #108745;
-}
-
-main #mobileHeroText .contactoHero {
-  background-color: #108745;
-  color: white;
-  font-size: 20px;
+#introAlpinas {
+  background-image: url("/3coloresimagenfondo.png");
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 main #desktopHeroText .desktopH1 {
