@@ -1,5 +1,6 @@
+@charset "UTF-8";
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -8,14 +9,41 @@ a {
 
 #navAlpinas {
   background-color: #ECAC86;
+  font-family: "Inter", sans-serif;
+  color: #6e6e6e;
+  font-family: "Inter", sans-serif;
 }
 
-nav .navContainer {
-  border-bottom: 2px solid black;
+#navAlpinas a {
+  color: #6e6e6e;
+  font-weight: 500;
+}
+
+#navAlpinas .subItems li {
+  margin-bottom: .7em;
+}
+
+#navAlpinas .subItems #firstLI {
+  padding-top: .7em;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #5B2F57;
+}
+
+#flush-collapseOne {
+  border-radius: 0%;
+  background-color: #ECAC86;
+  color: #5B2F57;
+  letter-spacing: 1.5px;
+}
+
+.navItemAlpinas .accordion-button.collapsed::after {
+  background: url("");
 }
 
 nav #webNavBar {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 nav #barraSocial a {
@@ -32,26 +60,35 @@ nav .linkActivo {
 
 #introAlpinas {
   background-image: url("/3coloresimagenfondo.png");
-  background-size: auto;
+  background-size: 100%;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: -100px 10px;
+}
+
+.pall {
+  letter-spacing: .1em;
+  font-size: 16px;
+}
+
+.pall .boldText {
+  font-weight: bold;
 }
 
 main #desktopHeroText .desktopH1 {
-  color: #921D78;
+  color: #5B2F57;
   font-size: 46px;
   line-height: 1em;
 }
 
 main #desktopHeroText .ctaPropiedadesText {
   color: #108745;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 main .contactoHeroDesktop {
   background-color: #108745;
   color: white;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 main .exploraBtn {
@@ -70,8 +107,30 @@ main .exploraBtn:hover img {
   translate: 10px;
 }
 
+#h2Inicio {
+  color: #5B2F57;
+  font-weight: bold;
+}
+
+#categoriaCajaCard h3 {
+  font-weight: bold;
+  color: white;
+  -webkit-transform: translate(0px, -15vh);
+          transform: translate(0px, -15vh);
+}
+
+#categoriaCajaCard #diseñosPersonalizados {
+  font-size: 14px;
+}
+
+.envioText {
+  font-size: 24px;
+  color: #404042;
+  font-weight: 500;
+}
+
 #servicios .p-mobile {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 #servicios .p-mobile span {
@@ -88,9 +147,9 @@ main .exploraBtn:hover img {
 
 #servicios .serviciosTittle {
   display: inline-block;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: bold;
-  border-bottom: 3px solid #921D78;
+  border-bottom: 3px solid #5B2F57;
 }
 
 #servicios .servicioIcon {
@@ -106,7 +165,7 @@ main .exploraBtn:hover img {
   color: white;
   background-color: #108745;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 24px;
   border-radius: 33px;
 }
 
@@ -116,7 +175,7 @@ main .exploraBtn:hover img {
   background-color: white;
   border: 3px solid #108745;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 32px;
   border-radius: 33px;
 }
 
@@ -141,7 +200,7 @@ main .exploraBtn:hover img {
 }
 
 #verPropiedades .precio {
-  font-size: 22px;
+  font-size: 24px;
   font-style: italic;
   font-weight: 400;
   color: #3b3b3b;
@@ -159,8 +218,8 @@ main .exploraBtn:hover img {
   color: black;
   display: inline-block;
   text-decoration: underline;
-  -webkit-text-decoration-color: #921D78;
-          text-decoration-color: #921D78;
+  -webkit-text-decoration-color: #5B2F57;
+          text-decoration-color: #5B2F57;
 }
 
 #verPropiedades .verMasLG {
@@ -170,8 +229,8 @@ main .exploraBtn:hover img {
   color: black;
   display: inline-block;
   text-decoration: underline;
-  -webkit-text-decoration-color: #921D78;
-          text-decoration-color: #921D78;
+  -webkit-text-decoration-color: #5B2F57;
+          text-decoration-color: #5B2F57;
   -webkit-transition: all .102s ease-out;
   transition: all .102s ease-out;
 }
@@ -201,7 +260,7 @@ main .exploraBtn:hover img {
   -webkit-text-decoration-color: #BCBCBC;
           text-decoration-color: #BCBCBC;
   color: black;
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .tituloDesktop {
@@ -255,7 +314,7 @@ main .exploraBtn:hover img {
 }
 
 .consultarDesktop {
-  font-size: 22px;
+  font-size: 24px;
 }
 
 .casaIndividualMobile .contactarseMobile {
@@ -273,18 +332,18 @@ main .exploraBtn:hover img {
 }
 
 footer .direccion {
-  font-size: 22px;
+  font-size: 24px;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
   text-decoration: underline;
-  -webkit-text-decoration-color: #921D78;
-          text-decoration-color: #921D78;
+  -webkit-text-decoration-color: #5B2F57;
+          text-decoration-color: #5B2F57;
 }
 
 footer .footerItem {
-  border-bottom: 2px solid #921D78;
-  font-size: 22px;
+  border-bottom: 2px solid #5B2F57;
+  font-size: 24px;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;

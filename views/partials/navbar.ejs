@@ -2,7 +2,7 @@
 <!-- Menu navegador bootstrap -->
 <header >    
     <nav id="navAlpinas" class="navbar navbar-expand-lg  " >
-        <div  class="container navContainer d-lg-none ">  
+        <div  class="container  d-lg-none ">  
         <a class="" href="/" > 
             <img class="img-fluid navbar-brand"  src="Logo.png" alt="">
         </a>
@@ -11,23 +11,26 @@
           </button>
           <div class="collapse navbar-collapse my-3" id="navbarSupportedContent">    
                 <ul class="navbar-nav mb-2"> 
-              <li class="nav-item text-center">
-                <a  class="linkActivo" aria-current="page" href="/">Inicio</a>
-              </li>
+                  <a href="/modo-laser" class="navItemAlpinas">
+                    <p style="background-color:  #ECAC86;border-radius: 0px;
+                    " class="accordion-button collapsed"  aria-expanded="false" >
+                  INICIO
+                  </p>
+                  </a>
               <li style="border-radius: 0px" class="nav-item dropdown">
                 
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="flush-headingOne">
-                        <button style="background-color: #ECAC86;border-radius: 0px;
+                        <button style="background-color:  #ECAC86;border-radius: 0px;
                         " class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                        PRODUCTOS
                         </button>
                       </h2>
-                      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                        <div class="accordion-body">
-                            <ul class="" aria-labelledby="navbarPRODUCTOS">
-                                <li><a class="" href="#">Ver todos los productos</a></li>
+                      <div style=" background-color: #ECAC86" id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                       
+                            <ul class="list-unstyled subItems px-3" aria-labelledby="navbarPRODUCTOS">
+                                <li id="firstLI"><a class="" href="#">Ver todos los productos</a></li>
                                 <li><a class="" href="#">Abc</a></li>
                                 <li><a class="" href="#">Cajas para imaginar y crear</a></li>
                                 <li><a class="" href="#">Duo</a></li>
@@ -38,31 +41,27 @@
                                 <li><a class="" href="#">Pizarras</a></li>
               
                               </ul>
-                    </div>
+                
+                              
                  
                  
                   </div>
-                <ul class="dropdown-menu" aria-labelledby="navbarPRODUCTOS">
-                  <li><a class="dropdown-item" href="#">Ver todos los productos</a></li>
-                  <li><a class="dropdown-item" href="#">Abc</a></li>
-                  <li><a class="dropdown-item" href="#">Cajas para imaginar y crear</a></li>
-                  <li><a class="dropdown-item" href="#">Duo</a></li>
-                  <li><a class="dropdown-item" href="#">Domino</a></li>
-                  <li><a class="dropdown-item" href="#">Mapas</a></li>
-                  <li><a class="dropdown-item" href="#">Memotest</a></li>
-                  <li><a class="dropdown-item" href="#">Sellos</a></li>
-                  <li><a class="dropdown-item" href="#">Pizarras</a></li>
-
-                </ul>
+                  
               </li>
              
-              
-              <li class="nav-item mt-2">
-                <a class="" href="/propiedades">AlPINAS MODO LASÉR</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="" href="/propiedades">DE YAPA</a>
-              </li>
+              <a href="/modo-laser" class=" navItemAlpinas" >
+                <p style="background-color:  #ECAC86;border-radius: 0px;
+                " class="accordion-button collapsed" type="button" >
+               AlPINAS MODO LASÉR
+                </p>
+              </a>
+              <a href="/de-yapa" class=" navItemAlpinas">
+                <p style="background-color:  #ECAC86;border-radius: 0px;
+                " class="accordion-button collapsed" type="button" >
+               DE YAPA
+                </p>
+              </a>
+         
            
             </ul>
 
@@ -104,5 +103,7 @@
     
     </div>
     </nav>
+
 </header>
-    <!-- Menu navegador bootstrap -->
+<script src="/navJS.js"></script>
+<!-- Menu navegador bootstrap -->

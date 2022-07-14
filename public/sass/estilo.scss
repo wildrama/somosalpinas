@@ -1,19 +1,25 @@
-$color1:#921D78;
+$color1:#5B2F57;
 $color2:#108745;
 $color3:#F8C301;
-
+$navBarItemColor:#5B2F57;
+$navBarSubItemsColor:#6e6e6e;
+$bgRosita:#FFDBC6;
 $textColor1:black;
 $textColor2:white;
 
-$textSize1:22px;
+$textSize1:24px;
 $textSize2:1em;
 $textSize3:36px;
 $textSize4:46px;
-$textSize5:28px;
-
+$textSize5:32px;
+$textSmall:14px;
+$MontserratFont: 'Montserrat', sans-serif;
+$InterFont :  'Inter', sans-serif;
+$PoppinsFont: 'Poppins', sans-serif;
+$RaleWayFont: 'Raleway', sans-serif;
 // body
 body{
-    font-family: 'Raleway', sans-serif;
+    font-family: $PoppinsFont;
 
 }
 // 
@@ -22,14 +28,51 @@ a{
 }
 #navAlpinas {
     background-color: #ECAC86 ;
+    font-family: $InterFont;
+   
+    
+        color: $navBarSubItemsColor;
+        a{
+            color:$navBarSubItemsColor;
+            font-weight: 500;
+            
+        }  
+
+  
+    font-family: $InterFont;
+
+   .subItems{
+     li{
+        margin-bottom: .7em;
+     }
+    #firstLI{
+        
+        padding-top: .7em;
+     }
+   }
 }
+.accordion-button:not(.collapsed){
+    color: $navBarItemColor;
+}
+#flush-collapseOne{
+    border-radius: 0%;
+    background-color: #ECAC86;
+    color:#5B2F57;
+   letter-spacing: 1.5px;
+}
+.navItemAlpinas{
+
+    .accordion-button.collapsed::after {
+
+        background: url("");
+      
+      }
+}
+
 
 // navbar
 nav{
-    .navContainer{
-        
-        border-bottom: 2px solid black;
-    }
+ 
     #webNavBar{
         font-size: $textSize1;
       
@@ -54,12 +97,20 @@ nav{
 // alpinas estilo index
 
 #introAlpinas{
+    
     background-image: url('/3coloresimagenfondo.png');
-    background-size: auto;
+    background-size:100%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: -100px 10px;
 }
 
+.pall{
+    letter-spacing: .1em;
+    font-size: 16px;
+    .boldText{
+        font-weight: bold;
+    }
+}
 // 
 // mainIndex
 main{
@@ -97,7 +148,32 @@ main{
     }
 }
 // 
+#h2Inicio{
+    color: $color1;
+    font-weight: bold;
+}
 
+#categoriaCajaCard{
+    
+        
+      h3{
+    font-weight: bold;
+    color: white;
+    transform: translate(0px , -15vh);
+  }
+    #diseñosPersonalizados{
+        font-size: $textSmall;
+    }
+}
+.envioText{
+    font-size: $textSize1;
+    color: #404042;
+    font-weight: 500;
+}
+// #deYapa{
+//     height: 30vh;
+//     background-image: ;
+// }
 // servicios INDEX
 #servicios{
     .p-mobile{
