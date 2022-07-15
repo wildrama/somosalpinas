@@ -55,17 +55,20 @@ a{
     color: $navBarItemColor;
 }
 #flush-collapseOne{
+
     border-radius: 0%;
     background-color: #ECAC86;
     color:#5B2F57;
-   letter-spacing: 1.5px;
+
+    letter-spacing: 1.5px;
+
 }
 .navItemAlpinas{
 
     .accordion-button.collapsed::after {
 
         background: url("");
-      
+        
       }
 }
 
@@ -168,8 +171,37 @@ main{
 .envioText{
     font-size: $textSize1;
     color: #404042;
-    font-weight: 500;
+   
 }
+.footerContacto{
+    hr{
+        width: 50%;
+        border: 2px solid rgb(29, 28, 25);
+    }
+}
+.sub-item-footer{
+    h4{
+        font-size: 18px;
+    }
+    a{
+        font-size: 18px;
+        color: #404042;
+        font-weight: 500;
+        
+    }
+}
+
+.linksRedes{
+    border-radius: 23px;
+    background-color: black !important;
+    color: white;
+    
+    font-weight: 500;
+    &:hover{
+        color:#5B2F57
+    }
+}
+
 // #deYapa{
 //     height: 30vh;
 //     background-image: ;
@@ -420,7 +452,7 @@ footer{
     }
     .footer-container {
         font-family: Montserrat, sans-serif;
-        background-color: #050033;
+        background-color: #FFB1B1;
         
         display: flex;
         align-items: center;

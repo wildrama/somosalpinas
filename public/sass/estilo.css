@@ -126,7 +126,32 @@ main .exploraBtn:hover img {
 .envioText {
   font-size: 24px;
   color: #404042;
+}
+
+.footerContacto hr {
+  width: 50%;
+  border: 2px solid #1d1c19;
+}
+
+.sub-item-footer h4 {
+  font-size: 18px;
+}
+
+.sub-item-footer a {
+  font-size: 18px;
+  color: #404042;
   font-weight: 500;
+}
+
+.linksRedes {
+  border-radius: 23px;
+  background-color: black !important;
+  color: white;
+  font-weight: 500;
+}
+
+.linksRedes:hover {
+  color: #5B2F57;
 }
 
 #servicios .p-mobile {
@@ -367,7 +392,7 @@ footer a {
 
 footer .footer-container {
   font-family: Montserrat, sans-serif;
-  background-color: #050033;
+  background-color: #FFB1B1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
