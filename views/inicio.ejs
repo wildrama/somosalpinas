@@ -1,8 +1,8 @@
 <% layout('layouts/boilerplate')%>
 
 <main>
-    <section id="introAlpinas" class="py-4">
-        <div class="pall container px-5 py-2 mt-2">
+    <section id="introAlpinas" class="py-4 d-lg-none">
+        <div class="pall container px-5 py-2 mt-2  ">
             
             <p id="p1" class=" mb-3  ">
                 SOMOS CAMILA Y JIMENA, HERMANAS Y EMPRENDEDORAS SAMPEDRINAS. HACE CINCO AÑOS NOS INICIAMOS EN ESTA AVENTURA QUE NOS APASIONA Y NOS INVITA A SEGUIR EXPLORANDO NUEVOS JUEGOS PARA LAS INFANCIAS
@@ -19,10 +19,43 @@
             </p>
         </div>
     </section>
+    <section class="py-3 d-none  d-lg-block" id="webHeroAlpinas">
+        <div class="pallWeb container px-3 py-2 mt-4  ">
+            
+            <div class="row">
+                <div class="col-lg-7">
+                    <p id="p1" class=" mb-4  ">
+                       <span style="color: white;">.  </span> SOMOS CAMILA Y JIMENA, HERMANAS Y EMPRENDEDORAS SAMPEDRINAS. HACE CINCO AÑOS NOS INICIAMOS EN ESTA AVENTURA QUE NOS APASIONA Y NOS INVITA A SEGUIR EXPLORANDO NUEVOS JUEGOS PARA LAS INFANCIAS
+                    </p>
+                    
+                    <p id="p2" class=" mb-4  boldText">
+                        <span style="color: white;">.  </span> TODOS NUESTROS PRODUCTOS SON DISEÑADOS 100% POR ALPINAS, POR ESO NO HAY OTRO IGUAL
+                    </p>
+                    <p id="p3" class=" mb-4  ">
+                        <span style="color: white;">.  </span>   NUESTRO OBJETIVO ES OFRECER JUEGOS QUE PROMUEVAN EL DESARROLLO DE LA IMAGINACIÓN, LA CREATIVIDAD, LA CURIOSIDAD Y LAS HABILIDADES TANTO COGNITIVAS COMO MOTRICES
+                    </p>
+                  
+ 
+                </div>
+                <div class="col-lg-5">
+                    <img src="" alt="">
+                </div>
+              
+            </div>
+          
+            <p id="p4" style="border-radius:100px;" class=" mb-3 text-center px-4 py-3 border border-rounded boldText">
+                ¡TE INVITAMOS A CONOCER TODA NUESTRA LÍNEA DE JUEGOS INFANTILES!
+            </p>
+        </div>
+        
+    </section>
+       
+
+    
    
-    <div class="container">
+    <div class="container mb-3">
         <a href="#">
-        <div class="row align-items-center">
+        <div class="row align-items-center d-lg-none">
             <div class="col-9">
                 <h2 id="h2Inicio" class="px-3">Escribinos ahora para hacer tu pedido!</h2>
 
@@ -31,6 +64,17 @@
                 <img class="" src="/wp0.png" alt="">
             </div>
         </div>
+   
+                <!-- <div class="contc d-none d-lg-block ">
+                    <p id="h2Inicio" class="px-3 ">Escribinos ahora para hacer tu pedido!</p>
+
+           
+                    <img  class=" img-fluid" src="/wp0.png" alt="">
+                </div> -->
+            
+           
+               
+        
     </a>
     </div>
 <section id="categorias">
@@ -57,7 +101,7 @@
             <div class="col-12 col-md-6">
                 <a href="/categorias/caja" id="categoriaCajaCard" class="categoriaCard">
                   <img class="img-fluid" src="/categorias/DUOCategoria.jpg" alt="">
-                    <h3 class="px-4 pb-2 text-start">DUÓ</h3>
+                    <h3 class="px-4 pb-2 text-start">DUO</h3>
                 </a>
             </div>
             <div class="col-12 col-md-6">
@@ -93,12 +137,12 @@
    
 <section ">
     <div class="container">
-        <div class="row ">
-            <div class="col-4 text-center">
+        <div class="row align-items-center">
+            <div class="col-4 col-lg-4 text-center">
                 <img class="img-fluid" src="/argentinaSVG.png" alt="">
             </div>
-            <div class="col-8">
-                <p class="envioText">
+            <div class="col-8 col-lg-6 text-center">
+                <p style="font-family:Montserrat; font-weight: bold; font-size: 2em;" class="envioText">
                     Realizamos envios a todo el País
                 </p>
             </div>
@@ -114,16 +158,16 @@
         
         
         <div class="row ">
-            <div class="col-12 mb-3">
-                <h4 class="footerContacto mb-0 ">
+            <div class="col-12 col-lg-6 mb-3 text px-5">
+                <h4 class="footerContacto mb-0 px-3 ">
                     CONTACTO
                     
                 </h4>
-                <div class="w-50 border border-dark" >
+                <div class="w-25 border border-dark" >
                 </div>
             </div>
         </div>
-            <div class="row sub-item-footer align-items-center">
+            <div class="row sub-item-footer align-items-center d-lg-none">
 
            
             <div class="col-6 px-2  my-2">
@@ -135,7 +179,27 @@
                 <h4 class="d-flex align-items-center" > <img class="px-2 img-fluid" src="/ubi.png" alt=""> San Pedro, Buenos Aires  </h4>
 
             </div>
-            <div class="col-12 text-center">
+            <div class="col-12 col-lg-6 text-center">
+                <a href="mailto:hola@somosalpinas.com.ar" class="mailcontainer">
+                    <h4 class="">  <img class="px-1 img-fluid" src="/mail.png" alt=""> hola@somosalpinas.com.ar</h4>
+                    
+
+                </a>
+            </div>
+        </div>
+        <div class="row sub-item-footer align-items-center d-none d-lg-block">
+
+           
+            <div class="col-6 px-2  my-2">
+                <a href="">
+                <h4 class="d-flex align-items-center" > <img class="px-2 img-fluid" src="/wp.png" alt="">3329 684404</h4>
+            </a>
+            </div>
+            <div class="col-6 px-2 my-2">
+                <h4 class="d-flex align-items-center" > <img class="px-2 img-fluid" src="/ubi.png" alt=""> San Pedro, Buenos Aires  </h4>
+
+            </div>
+            <div class="col-12 col-lg-6 text-center">
                 <a href="mailto:hola@somosalpinas.com.ar" class="mailcontainer">
                     <h4 class="">  <img class="px-1 img-fluid" src="/mail.png" alt=""> hola@somosalpinas.com.ar</h4>
                     
@@ -143,7 +207,6 @@
                 </a>
             </div>
         </div>
-
         <div class="row  pt-3">
           <div class="col-6">
             <a class="linksRedes   py-2  px-3 " href="">
