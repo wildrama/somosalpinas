@@ -9,15 +9,15 @@ router.get('/registro',  (req,res)=>{
 res.render('adm/registro');
 });
 
-router.post('/r', catchAsync(async(req,res)=>{
+router.post('/registro', catchAsync(async(req,res)=>{
 
     try {
-        const { email, username, password } = req.body;
-        const user = new Usuario({email, username});
+        const { rol, username, password } = req.body;
+        const user = new Usuario({rol, username});
         const usuarioRegistrado = await Usuario.register(user,password);
         req.login(usuarioRegistrado, err => {
             if (err) return next(err);
-            req.flash('success', 'Bienvenido a la sesión de administrador');
+            req.flash('success', 'Bienvenido a la sesión de administrador de ALPINAS');
             res.redirect('/administrador');
         })
     } catch (e) {

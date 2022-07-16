@@ -8,7 +8,7 @@
             Inicio</a></li>
         <li class="breadcrumb-item"><a href="/administrador"> Administrador</a></li>
         <li class="breadcrumb-item active" aria-current="page">
-          <%= propiedad.titulo %>
+          <%= producto.titulo %>
         </li>
       </ol>
     </nav>
@@ -28,7 +28,7 @@
 
 
               <h2 class="tituloDesktop">
-                <%= propiedad.titulo %>
+                <%= producto.titulo %>
               </h2>
 
 
@@ -37,7 +37,7 @@
 
             <div class="col-12 ">
               <p class="descripcionDesktop px-3 py-3">
-                <%= propiedad.descripcion %>
+                <%= producto.descripcion %>
               </p>
             </div>
 
@@ -46,7 +46,7 @@
                 <span class="px-2">
                   <img class="ubiWebIcon" src="/svg/ubi.svg" alt="Icono Ubicacion">
                 </span>
-                <%= propiedad.direccion %>
+                <%= producto.direccion %>
 
               </a>
 
@@ -54,7 +54,7 @@
             <div class="row  mt-5 align-items-baseline ">
               <div class="col-6 d-flex px-4 peso">
                 <p class=" precio">
-                  <% if(propiedad.precio=='0'){ %>
+                  <% if(producto.precio=='0'){ %>
 
                     <span>
                       $--Consultar
@@ -62,7 +62,7 @@
 
                     <% } else{ %>
                       <span>
-                        $<%=propiedad.precio %>
+                        $<%=producto.precio %>
                       </span>
                       <% } %>
 
@@ -82,7 +82,7 @@
             data-mdb-ride="carousel">
             <!-- Slides -->
             <div class="carousel-inner ">
-              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
+              <% producto.imagenes.forEach( ( imagen , i )=> { %>
 
                 <div class="carousel-item <%= i === 0? 'active':''%>">
                   <img src="<%= imagen.crop %>" class="d-block w-100" alt="..." />
@@ -108,7 +108,7 @@
 
             <!-- Thumbnails -->
             <div class="carousel-indicators" style="margin-bottom: -20px;">
-              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
+              <% producto.imagenes.forEach( ( imagen , i )=> { %>
 
                 <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
                   class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide 1" style="width: 100px;">
@@ -137,7 +137,7 @@
 
 
               <h2 class="tituloDesktop">
-                <%= propiedad.titulo %>
+                <%= producto.titulo %>
               </h2>
 
 
@@ -146,7 +146,7 @@
 
             <div class="col-12 ">
               <p class="descripcionDesktop px-3 py-3">
-                <%= propiedad.descripcion %>
+                <%= producto.descripcion %>
               </p>
             </div>
 
@@ -155,7 +155,7 @@
                 <span class="px-2">
                   <img class="ubiWebIcon" src="/svg/ubi.svg" alt="Icono Ubicacion">
                 </span>
-                <%= propiedad.direccion %>
+                <%= producto.direccion %>
 
               </a>
 
@@ -163,7 +163,7 @@
             <div class="row  mt-5 align-items-baseline ">
               <div class="col-6 d-flex px-4 peso">
                 <p class=" precio">
-                  <% if(!propiedad.precio){ %>
+                  <% if(!producto.precio){ %>
 
                     <span>
                       $--Consultar
@@ -171,7 +171,7 @@
 
                     <% } else{ %>
                       <span>
-                        $<%=propiedad.precio %>
+                        $<%=producto.precio %>
                       </span>
                       <% } %>
 
@@ -191,7 +191,7 @@
             data-mdb-ride="carousel">
             <!-- Slides -->
             <div class="carousel-inner ">
-              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
+              <% producto.imagenes.forEach( ( imagen , i )=> { %>
 
                 <div class="carousel-item <%= i === 0? 'active':''%>">
                   <img src="<%= imagen.crop %>" class="d-block w-100" alt="..." />
@@ -214,10 +214,10 @@
               <span class="visually-hidden">Next</span>
             </button>
             <!-- Controls -->
-
+              
             <!-- Thumbnails -->
             <div class="carousel-indicators" style="margin-bottom: -20px;">
-              <% propiedad.imagenes.forEach( ( imagen , i )=> { %>
+              <% producto.imagenes.forEach( ( imagen , i )=> { %>
 
                 <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
                   class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide 1" style="width: 100px;">

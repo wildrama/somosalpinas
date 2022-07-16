@@ -17,9 +17,8 @@ const upload = multer({storage});
 
 // RENDER VER mostrar elementos Inicio de CRUD ADMIN
 router.get('/', isLoggedIn,catchAsync(async (req, res) => {
-    const catMemo = await Propiedad.find({});
-    
-    res.render('adm/mostrar',{propiedades});
+    const user = req.user
+    res.render('adm/mostrar',{user});
     
   })) ;
 
@@ -27,7 +26,7 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   // RENDER agregar elemento
   
   router.get('/nueva',isLoggedIn,(req,res) =>{
-    res.render('adm/crearpropiedad');
+    res.render('adm/crearProducto');
   });
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
   
