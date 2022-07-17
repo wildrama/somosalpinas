@@ -42,22 +42,6 @@ a {
   background: url("");
 }
 
-nav #webNavBar {
-  font-size: 24px;
-}
-
-nav #barraSocial a {
-  font-size: 1em !important;
-}
-
-nav a {
-  color: black;
-}
-
-nav .linkActivo {
-  font-weight: 500;
-}
-
 #introAlpinas {
   background-image: url("/3coloresimagenfondo.png");
   background-size: 100%;
@@ -83,11 +67,30 @@ nav .linkActivo {
 
 .pallWeb {
   letter-spacing: .1em;
-  font-size: 24px;
+  font-size: 18px;
 }
 
 .pallWeb .boldText {
   font-weight: bold;
+}
+
+.pallWeb .adp {
+  text-decoration: none;
+  background-color: #FFB35A;
+  color: white;
+  border-radius: 85px;
+  padding: 1em 2em;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.pallWeb .adp:hover {
+  font-weight: bold;
+  padding: 1.2em 2.2em;
+}
+
+.pallWeb .pexplore {
+  color: #5B2F57;
 }
 
 main #desktopHeroText .desktopH1 {
@@ -128,19 +131,33 @@ main .exploraBtn:hover img {
   font-weight: bold;
 }
 
-#categoriaCajaCard h3 {
+.categoriaCard h3 {
   font-weight: bold;
   color: white;
   -webkit-transform: translate(0px, -15vh);
           transform: translate(0px, -15vh);
 }
 
-#categoriaCajaCard #diseñosPersonalizados {
+.categoriaCard img {
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.categoriaCard img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+#diseñosPersonalizados {
   font-size: 14px;
 }
 
 .envioText {
   font-size: 24px;
+  color: #404042;
+}
+
+#sectionFooter .linkFooter {
   color: #404042;
 }
 
@@ -151,9 +168,12 @@ main .exploraBtn:hover img {
 
 .sub-item-footer h4 {
   font-size: 18px;
+  color: #404042;
+  font-weight: 500;
 }
 
 .sub-item-footer a {
+  text-decoration: none;
   font-size: 18px;
   color: #404042;
   font-weight: 500;

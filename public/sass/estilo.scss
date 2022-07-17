@@ -6,7 +6,7 @@ $navBarSubItemsColor:#6e6e6e;
 $bgRosita:#FFDBC6;
 $textColor1:black;
 $textColor2:white;
-
+   
 $textSize1:24px;
 $textSize2:1em;
 $textSize3:36px;
@@ -74,28 +74,7 @@ a{
 
 
 // navbar
-nav{
- 
-    #webNavBar{
-        font-size: $textSize1;
-       
-    }
-    #barraSocial{
-        a{
-            font-size: $textSize2 !important;
 
-        }
-
-
-    }
-     a{
-    color: white;
-       }    
-
-       .linkActivo{
-           font-weight:500;
-       }
-}
 
 // alpinas estilo index
 
@@ -122,9 +101,26 @@ nav{
 }
 .pallWeb{
     letter-spacing: .1em;
-    font-size: 24px;
+    font-size: 18px;
     .boldText{
         font-weight: bold;
+    }
+    .adp{
+        text-decoration: none;
+        background-color: #FFB35A;
+        color: white;
+        border-radius: 85px;
+        padding: 1em 2em;
+        transition: all .2s;
+        &:hover{
+            font-weight: bold;
+            padding: 1.2em 2.2em;
+        
+        }   
+    }   
+    .pexplore{
+        color: #5B2F57;
+
     }
 }
 // 
@@ -169,18 +165,30 @@ main{
     font-weight: bold;
 }
 
-#categoriaCajaCard{
-    
+.categoriaCard{
+  
         
       h3{
     font-weight: bold;
     color: white;
     transform: translate(0px , -15vh);
   }
-    #diseñosPersonalizados{
-        font-size: $textSmall;
+
+    img{
+        transition: 0.3s;
+        &:hover{
+            transform: scale(1.1);
+
+        }
     }
+
 }
+#diseñosPersonalizados{
+    font-size: $textSmall;
+
+}
+
+
 .envioText{
     font-size: $textSize1;
     color: #404042;
