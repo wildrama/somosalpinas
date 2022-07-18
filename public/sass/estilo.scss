@@ -107,7 +107,7 @@ a{
     }
     .adp{
         text-decoration: none;
-        background-color: #FFB35A;
+        background-color: #FFCD87;
         color: white;
         border-radius: 85px;
         padding: 1em 2em;
@@ -160,6 +160,8 @@ main{
     }
 }
 // 
+
+
 #h2Inicio{
     color: $color1;
     font-weight: bold;
@@ -189,6 +191,38 @@ main{
 }
 
 
+#modoLaserWP{
+    background-color: #ECAC86;
+    color: white;
+    padding: 1em 2.5em;
+    font-weight: bold;
+    border-radius: 10px;
+}
+#modoLaserIg{
+    background-color: white;
+    color: black;
+    padding: 1em 2em;
+    font-weight: 500;
+    border-radius: 83px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.251);
+
+}
+.cardProductoAlpinas{
+    font-family: $MontserratFont;
+    a{
+        text-decoration: none;
+    }
+    .tituloProducto{
+    color: $textColor1 ;
+    font-weight: 500;
+    letter-spacing: .1em;
+    }
+}
+.tituloProducto{
+
+    background-color: #FFEFAB;
+
+}
 .envioText{
     font-size: $textSize1;
     color: #404042;
@@ -236,215 +270,25 @@ main{
 //     background-image: ;
 // }
 // servicios INDEX
-#servicios{
-    .p-mobile{
-        font-size: $textSize1;
-        span{
-            color: $color2;
-        }
-    }
-    .p-desktop{
-        font-size: $textSize3;
-        span{
-            color: $color2;
-        }
-    }
-    .serviciosTittle{
-        display: inline-block;
-        font-size: $textSize1;
-        font-weight: bold;
-        border-bottom: 3px solid $color1;
-    }
-    .servicioIcon{
-        padding-top: 3em;
-       &:hover{
-            font-weight: bold;
-        }
-    }
-    
-
-}
-.ctaExploraPropiedadesMobile{
-    text-decoration: none;
-    color: $textColor2;
-    background-color: $color2;
-    font-weight: bold;
-    font-size: $textSize1;
-    border-radius: 33px;
-  
-}
 
 
-.ctaExploraPropiedadesDesktop{
-    text-decoration: none;
-    color: $textColor1;
-    background-color: $textColor2;
-    border: 3px solid $color2   ;
-    font-weight: bold;
-    font-size: $textSize5;
-    border-radius: 33px;
-  
-}
-#bottomCta{
-    border-bottom: 2px solid black;
-}
+
+
+
 // 
 
 
-// propiedades.html
-#verPropiedades{
-    .imgContainer{
 
-
-        position: relative;
-        text-align: center;
-
-        .top-right {
-          
-            position: absolute;
-            top: 0px;
-            right: 1em;
-            color: $textColor2;
-            padding: 1em 2em;
-            font-weight: 500;
-            background: rgba(0, 0, 0, 0.55);
-            border-radius: 0px 0px 0px 5px; 
-          }
-    }
-
-  
-
-
-    .precio{
-        font-size: $textSize1   ;
-        span{
-            font-weight: bold;
-            color: black;
-        }
-        font-style: italic;
-        font-weight: 400;
-        color: rgb(59, 59, 59);
-    }
-
-
-    .verMas{
-        font-size: 1em;
-        font-weight: 600;
-        text-decoration: none;
-        color: $textColor1;
-        display: inline-block;
-        text-decoration: underline;
-        text-decoration-color: $color1;
-
-    }
-    .verMasLG{
-        img{
-            height: 46px;
-            width: auto;
-        }
-        font-size: 1.5em;
-        font-weight: 500;
-        text-decoration: none;
-        color: $textColor1;
-        display: inline-block;
-        text-decoration: underline;
-        text-decoration-color: $color1;
-        transition: all .102s ease-out;
-        
-        
-        &:hover{    
-            text-decoration-color: $color2;
-            font-weight: bold;
-        }
-    }
-
-
-
-}
-.direccionPublicacion{
-    font-weight: 400;
-    text-decoration: underline;
-    text-decoration-color: #BCBCBC ;
-    color: $textColor1;
-
-}
-.direccionPublicacionDesktop{
-    font-weight: 400;
-    text-decoration: underline;
-    text-decoration-color: #BCBCBC ;
-    color: $textColor1;
-    font-size: $textSize1;
-}
-// 
-.tituloDesktop{
-    font-size: 30px;
-}
-.descripcionDesktop{
-    border-left: 2px solid $color2;
-    border-right: 2px solid $color2;
-    font-size: 24px;
-}
-
-// propiedad Individual
-.borderDePublicacion{
-    border-bottom: 2px solid black;
-    background: rgba(88, 88, 88, 0.29);
-   
-}
-.ventaTag{
-    font-weight: 600;
-}
-.descripcion{
-    border-left: 2px solid $color2;
-    border-right: 2px solid $color2;
-
-}
 .ubiWebIcon{
     height: 30px;
     width: auto;
 
 }
-.peso{
-    font-size: 22px;
-}
-.contactarseDesktop{
-    font-size: 24px;
-    color: $textColor1;
-    border: 3px solid $color2;
-   
-    border-radius: 23px;
-    img{
-        height: 32px;
-        width: auto;
-    }
-    &:hover{
-        color: $textColor1;
-        font-weight: bold;
-    }
-}
-.consultarDesktop{
-    font-size: $textSize1;
-}
 
-.casaIndividualMobile{
-  
-    .contactarseMobile{
-        font-size: 18px;
-        color: $textColor1;
-        img{
-            height: 2em;
-            width: auto;
-           
-        }
 
-        &:hover{
-            font-weight: bold;
-        }
 
-    }   
- 
-   
-}
+
+
 // 
 // footer
 footer{

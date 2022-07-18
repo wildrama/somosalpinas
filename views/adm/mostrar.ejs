@@ -16,119 +16,29 @@
                 <a class="btn btn-dark" href="/cerrarsesion">Cerrar sesion e ir a la web</a>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-12 text-center">
-                <h2>Categorias</h2>
+                <h2>Crear nuevo producto</h2>
 
-                <a class="btn btn-secondary " href="/administrador/nueva">Nuevo Producto</a>
+                <a class="btn btn-secondary " href="/administrador/nuevo-producto">Nuevo Producto</a>
                 
             </div>
         </div>
         
+        <div class="row mt-3">
+            <div class="col-12 text-center">
+                <h2>Agregar a MODO LASER</h2>
+
+                <a class="btn btn-secondary " href="/administrador/nueva-modolaser"> Agregar</a>
+                
+            </div>
+        </div>
         
-    <div class="row">
-            <!-- casa1 -->
+        <div class="row mt-3">
+            <div class="col-12 ">
+                <h2>Todos las categorias</h2>
 
-            <% if(propiedades) {%>
-                <% for (let propiedad of propiedades){ %>
-                    <div class="col-6 my-4 mt-lg-3">
-                        <div class="row">
-                            <div class="col-12 col-lg-4 text-center imgContainer">
-
-                                <img class="img-fluid" src="<%= propiedad.imagenes[0].crop %>" alt="imagen">
-
-                                <!-- <% if (propiedad.imagenes.url) { %>
-    
-                                  <% } else{ %>
-                                    <img class="img-fluid" src="hero1.jpg" alt="Imagen">
-    
-                                  <% } %> -->
-
-                            </div>
-                            <div class="col-12 col-lg-8 px-lg-4">
-                                <h2 class="text-center text-lg-start py-3 py-lg-1">
-                                    <%=propiedad.titulo %>
-                                </h2>
-                                <h3 class="direccionPublicacion text-center text-lg-start"><span class=" mx-2"><img
-                                            src="/svg/ubi.svg" alt="ubicacion"></span>
-                                    <%=propiedad.direccion %>
-                                </h3>
-
-                                <div class="row  py-3">
-                                    <div class="col-6 d-lg-none d-flex justify-content-centr">
-                                        <p class=" precio">
-                                            <% if(propiedad.precio=='0'){ %>
-                          
-                                              <span>
-                                                $--Consultar
-                                              </span>
-                          
-                                              <% } else{ %>
-                                                <span>
-                                                  $<%=propiedad.precio %>
-                                                </span>
-                                                <% } %>
-                          
-                          
-                                          </p>
-                                    </div>
-                                    <div class="col-6 d-none px-lg-4 d-lg-block">
-                                        <p class=" precio">
-
-                                            <% if(!propiedad.precio){ %>
-
-                                                <span>
-                                                    $--Consultar
-                                                </span>
-
-                                                <% } else{ %>
-                                                    <span>
-                                                        $ <%=propiedad.precio %>
-                                                    </span>
-                                                    <% } %>
-
-
-                                        </p>
-                                    </div>
-
-
-
-                                </div>
-
-
-                            </div>
-
-                            <div class="accionesADM">
-                                <div class="row text-center justify-content-center">
-                                    <div class="col-12 col-lg-12 pb-2 ">
-                                        <a class="btn btn-outline-success px-5"
-                                            href="/administrador/<%=propiedad._id%>">Ver publicación</a>
-
-                                    </div>
-
-                                    <div class="col-12 col-lg-4 pb-1">
-                                        <a class="btn btn-outline-primary"
-                                            href="/administrador/<%=propiedad._id%>/editar">Editar publicación</a>
-                                    </div>
-                                    <div class="col-12 col-lg-4">
-
-
-                                        <!-- Button trigger modal -->
-
-
-
-                                        <form action="/administrador/<%=propiedad._id%>?_method=DELETE"
-                                            method="post" >
-                                            <button class="btn btn-outline-warning">Eliminar
-                                                publicacion</button>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <%} %>
-                        <%} %>
+                
+            </div>
         </div>
     </div>

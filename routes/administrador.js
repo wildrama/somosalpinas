@@ -2,12 +2,15 @@ const express = require('express');
 const router = express.Router();
 const catchAsync =require('../utils/catchAsync');
 const {isLoggedIn} = require('../middleware');
-const Propiedad = require('../models/propiedad');
+const Producto = require('../models/producto');
 const {storage} = require('../cloudinary/index');
 const {cloudinary} = require('../cloudinary/index');
 
+
 const multer = require('multer');
 const upload = multer({storage});
+  
+
 // CRUD ADMINNN
 // router.get('/inicio', catchAsync(async(req,res)=>{
 // const user = new Usuario({email:'rambo1bc@hotmail.com',username: 'scorcelli',password:'123456'})
@@ -25,20 +28,25 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
 
   // RENDER agregar elemento
   
-  router.get('/nueva',isLoggedIn,(req,res) =>{
+  router.get('/nuevo-producto',isLoggedIn,(req,res) =>{
     res.render('adm/crearProducto');
   });
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
+  //
+  router.post('/',isLoggedIn,  upload.array('imagenes'),catchAsync( async (req,res)=>{
+ const qq = 'ASDFSF';
+
+  console.log(qq);
+    console.log(req.query)
   
-  router.post('/',upload.array('imagenes'),isLoggedIn, catchAsync( async (req,res)=>{
-   const nuevaPropiedad = new Propiedad (req.body);
-   nuevaPropiedad.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
-    console.log(nuevaPropiedad);
-    console.log(req.files)
+    // const nuevoPRODUCTO = new Producto(req.body);
+  //  nuevoPRODUCTO.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
+    // console.log(nuevoPRODUCTO);
+    // console.log(req.files)
 
-   await nuevaPropiedad.save();
-    res.redirect(`/administrador/${nuevaPropiedad._id}`)
-
+  //  await nuevoPRODUCTO.save();
+    // res.redirect(`/administrador/${nuevoPRODUCTO._id}`)
+res.send('ok')
     } ));
   
   
@@ -46,12 +54,12 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
       // poblate the products with the form and values
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
     const {id} = req.params;
-    const propiedad = await Propiedad.findById(id);
-    if (!propiedad) {
+    const producto = await Producto.findById(id);
+    if (!producto) {
       req.flash('error', 'No se puede encontrar la publicación');
       return res.redirect('/administrador');
   }
-    res.render('adm/editarpropiedad', {propiedad})
+    res.render('adm/editarproducto', {producto})
   }));
   
   // ENVIAR PUT REQUEST
@@ -59,21 +67,21 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   router.put('/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
   const {id} = req.params;
   console.log(req.body);
-  const upPropiedad = await Propiedad.findByIdAndUpdate(id, req.body);
+  const upProducto = await Propiedad.findByIdAndUpdate(id, req.body);
     console.log(req.files)
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
-  upPropiedad.imagenes.push(...imgs);
-  await upPropiedad.save();
+  upProducto.imagenes.push(...imgs);
+  await upProducto.save();
 
   if (req.body.deleteImagenes) {
     for (let filename of req.body.deleteImagenes) {
         await cloudinary.uploader.destroy(filename);
     }
-    await upPropiedad.updateOne({ $pull: { imagenes: { filename: { $in: req.body.deleteImagenes } } } })
+    await upProducto.updateOne({ $pull: { imagenes: { filename: { $in: req.body.deleteImagenes } } } })
 }
 
   req.flash('success', 'Publicación actualizada correctamente');
-  res.redirect(`/administrador/${upPropiedad._id}`)
+  res.redirect(`/administrador/${upProducto._id}`)
   }))
   
   
@@ -82,8 +90,8 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   router.get('/:id', isLoggedIn,catchAsync(async (req, res) =>{
     const {id} = req.params;
 
-   const propiedad = await Propiedad.findById(id)
-   res.render('adm/propiedadIndividual',{propiedad});
+   const producto = await Producto.findById(id)
+   res.render('adm/productoIndividualADM',{producto});
   } ))
   
   
@@ -91,7 +99,7 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   
   router.delete('/:id' ,isLoggedIn, catchAsync(async (req, res)=>{
     const {id}= req.params;
-    const deletedPropiedad= await Propiedad.findByIdAndDelete(id);
+    const deleteProducto= await Propiedad.findByIdAndDelete(id);
     res.redirect('/administrador');
   }))
 

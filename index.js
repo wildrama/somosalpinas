@@ -40,6 +40,7 @@ const sessionConfig = {
 const admRoutes =require('./routes/administrador');
 const userUiRoutes= require('./routes/propiedades')
 const rutasUsuario = require('./routes/usuario')
+const categoriasRoutes = require('./routes/categorias')
 main().catch(err => console.log(err));
 
 async function main() {
@@ -108,7 +109,7 @@ app.use((req, res, next) => {
 // Routes for admin
 app.use('/administrador',admRoutes);
 app.use('/', rutasUsuario )
-// app.use('/categorias',categoriasRoutes);
+app.use('/categorias',categoriasRoutes);
 
 
 // // routes for regular user

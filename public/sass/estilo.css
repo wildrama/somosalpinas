@@ -76,7 +76,7 @@ a {
 
 .pallWeb .adp {
   text-decoration: none;
-  background-color: #FFB35A;
+  background-color: #FFCD87;
   color: white;
   border-radius: 85px;
   padding: 1em 2em;
@@ -152,6 +152,42 @@ main .exploraBtn:hover img {
   font-size: 14px;
 }
 
+#modoLaserWP {
+  background-color: #ECAC86;
+  color: white;
+  padding: 1em 2.5em;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#modoLaserIg {
+  background-color: white;
+  color: black;
+  padding: 1em 2em;
+  font-weight: 500;
+  border-radius: 83px;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.251);
+          box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.251);
+}
+
+.cardProductoAlpinas {
+  font-family: "Montserrat", sans-serif;
+}
+
+.cardProductoAlpinas a {
+  text-decoration: none;
+}
+
+.cardProductoAlpinas .tituloProducto {
+  color: black;
+  font-weight: 500;
+  letter-spacing: .1em;
+}
+
+.tituloProducto {
+  background-color: #FFEFAB;
+}
+
 .envioText {
   font-size: 24px;
   color: #404042;
@@ -190,206 +226,9 @@ main .exploraBtn:hover img {
   color: #5B2F57;
 }
 
-#servicios .p-mobile {
-  font-size: 24px;
-}
-
-#servicios .p-mobile span {
-  color: #108745;
-}
-
-#servicios .p-desktop {
-  font-size: 36px;
-}
-
-#servicios .p-desktop span {
-  color: #108745;
-}
-
-#servicios .serviciosTittle {
-  display: inline-block;
-  font-size: 24px;
-  font-weight: bold;
-  border-bottom: 3px solid #5B2F57;
-}
-
-#servicios .servicioIcon {
-  padding-top: 3em;
-}
-
-#servicios .servicioIcon:hover {
-  font-weight: bold;
-}
-
-.ctaExploraPropiedadesMobile {
-  text-decoration: none;
-  color: white;
-  background-color: #108745;
-  font-weight: bold;
-  font-size: 24px;
-  border-radius: 33px;
-}
-
-.ctaExploraPropiedadesDesktop {
-  text-decoration: none;
-  color: black;
-  background-color: white;
-  border: 3px solid #108745;
-  font-weight: bold;
-  font-size: 32px;
-  border-radius: 33px;
-}
-
-#bottomCta {
-  border-bottom: 2px solid black;
-}
-
-#verPropiedades .imgContainer {
-  position: relative;
-  text-align: center;
-}
-
-#verPropiedades .imgContainer .top-right {
-  position: absolute;
-  top: 0px;
-  right: 1em;
-  color: white;
-  padding: 1em 2em;
-  font-weight: 500;
-  background: rgba(0, 0, 0, 0.55);
-  border-radius: 0px 0px 0px 5px;
-}
-
-#verPropiedades .precio {
-  font-size: 24px;
-  font-style: italic;
-  font-weight: 400;
-  color: #3b3b3b;
-}
-
-#verPropiedades .precio span {
-  font-weight: bold;
-  color: black;
-}
-
-#verPropiedades .verMas {
-  font-size: 1em;
-  font-weight: 600;
-  text-decoration: none;
-  color: black;
-  display: inline-block;
-  text-decoration: underline;
-  -webkit-text-decoration-color: #5B2F57;
-          text-decoration-color: #5B2F57;
-}
-
-#verPropiedades .verMasLG {
-  font-size: 1.5em;
-  font-weight: 500;
-  text-decoration: none;
-  color: black;
-  display: inline-block;
-  text-decoration: underline;
-  -webkit-text-decoration-color: #5B2F57;
-          text-decoration-color: #5B2F57;
-  -webkit-transition: all .102s ease-out;
-  transition: all .102s ease-out;
-}
-
-#verPropiedades .verMasLG img {
-  height: 46px;
-  width: auto;
-}
-
-#verPropiedades .verMasLG:hover {
-  -webkit-text-decoration-color: #108745;
-          text-decoration-color: #108745;
-  font-weight: bold;
-}
-
-.direccionPublicacion {
-  font-weight: 400;
-  text-decoration: underline;
-  -webkit-text-decoration-color: #BCBCBC;
-          text-decoration-color: #BCBCBC;
-  color: black;
-}
-
-.direccionPublicacionDesktop {
-  font-weight: 400;
-  text-decoration: underline;
-  -webkit-text-decoration-color: #BCBCBC;
-          text-decoration-color: #BCBCBC;
-  color: black;
-  font-size: 24px;
-}
-
-.tituloDesktop {
-  font-size: 30px;
-}
-
-.descripcionDesktop {
-  border-left: 2px solid #108745;
-  border-right: 2px solid #108745;
-  font-size: 24px;
-}
-
-.borderDePublicacion {
-  border-bottom: 2px solid black;
-  background: rgba(88, 88, 88, 0.29);
-}
-
-.ventaTag {
-  font-weight: 600;
-}
-
-.descripcion {
-  border-left: 2px solid #108745;
-  border-right: 2px solid #108745;
-}
-
 .ubiWebIcon {
   height: 30px;
   width: auto;
-}
-
-.peso {
-  font-size: 22px;
-}
-
-.contactarseDesktop {
-  font-size: 24px;
-  color: black;
-  border: 3px solid #108745;
-  border-radius: 23px;
-}
-
-.contactarseDesktop img {
-  height: 32px;
-  width: auto;
-}
-
-.contactarseDesktop:hover {
-  color: black;
-  font-weight: bold;
-}
-
-.consultarDesktop {
-  font-size: 24px;
-}
-
-.casaIndividualMobile .contactarseMobile {
-  font-size: 18px;
-  color: black;
-}
-
-.casaIndividualMobile .contactarseMobile img {
-  height: 2em;
-  width: auto;
-}
-
-.casaIndividualMobile .contactarseMobile:hover {
-  font-weight: bold;
 }
 
 footer .direccion {
