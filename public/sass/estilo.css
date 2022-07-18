@@ -65,6 +65,23 @@ a {
   font-weight: bold;
 }
 
+.adpMobile {
+  text-decoration: none;
+  background-color: #FFCD87;
+  color: white;
+  font-weight: bold;
+  border-radius: 85px;
+  padding: 1.2em 1.8em;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+
+.adpMobile:hover {
+  font-weight: bold;
+  letter-spacing: .2em;
+  color: #5B2F57;
+}
+
 .pallWeb {
   letter-spacing: .1em;
   font-size: 18px;
@@ -165,7 +182,7 @@ main .exploraBtn:hover img {
   background-color: white;
   color: black;
   padding: 1em 2em;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 83px;
   -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.251);
           box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.251);
