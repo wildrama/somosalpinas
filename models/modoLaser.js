@@ -2,24 +2,20 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 
-const ImagenSchemaML = new Schema({
+const ImagenSchema = new Schema({
   
     url : String,
    filename: String
 })
-ImagenSchemaML.virtual('thumbnail').get(function() {
+ImagenSchema.virtual('thumbnail').get(function() {
   return this.url.replace('/upload', '/upload/w_200');
 });
-ImagenSchemaML.virtual('show').get(function() {
+ImagenSchema.virtual('show').get(function() {
   return this.url.replace('/upload', '/upload/c_scale,h_400,w_600');
 });
-ImagenSchemaML.virtual('crop').get(function(){
+ImagenSchema.virtual('crop').get(function(){
 
   return this.url.replace('/upload', '/upload/c_scale,h_500,w_800');
-});
-ImagenSchemaML.virtual('carrusel').get(function(){
-
-  return this.url.replace('/upload', '/upload/c_scale,h_1080,w_1080');
 });
 const modolaserSchema = new Schema({
     titulo : {
@@ -28,9 +24,12 @@ const modolaserSchema = new Schema({
     },
         
     
-    imagenes:[ImagenSchemaML],
+    imagenes:[ImagenSchema],
 
-  
+    descripcion:{
+        type:String
+
+    },
     tags:[{
         type:String
     }]
