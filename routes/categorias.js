@@ -8,10 +8,16 @@ const catchAsync =require('../utils/catchAsync');
 
 // mostrar PRODUCTOS MODO LASER
 router.get('/modo-laser', catchAsync( async (req, res) => {
+  try {
+    console.log('MODOLASERGET')
     const modoLaserProductos = await ModoLaser.find({});
-      res.render('modo-laser',{modoLaserProductos});
+    res.render('modo-laser',{modoLaserProductos});
+  } catch (error) {
+    console.log(error)
+  }
+
     }));
-    
+
 // MOSTRAR TODOS LOS PRODUCTOS CAJAS
 router.get('/cajas', catchAsync( async (req, res) => {
     const productoCajas = await Producto.find({});
@@ -20,7 +26,7 @@ router.get('/cajas', catchAsync( async (req, res) => {
         
 // MOSTRAR CADA PRODUCTO CAJA
 
-
+    
 router.get('/cajas/ORIGAMI/ver-producto', catchAsync( async (req, res) => {
   // const idProducto = req.params.id;
   // const productoCajasIndividual = await Producto.findById(idProducto);
