@@ -37,7 +37,7 @@ const productoSchema = new Schema({
     },
     imagenes:[ImagenSchema],
 
-    caracterisicas:{
+    caracteristicas:{
         type:String
 
     },

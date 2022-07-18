@@ -26,14 +26,13 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
     
   })) ;
 
-
-  // RENDER agregar elemento
+// panel nuevo producto
   
   router.get('/nuevo-producto',isLoggedIn,(req,res) =>{
     res.render('adm/crearProducto');
   });
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
-  //
+  
   router.post('/',isLoggedIn,  upload.array('imagenes'),catchAsync( async (req,res)=>{
 console.log(req.body)
     const nuevoPRODUCTO = new Producto(req.body);
@@ -45,9 +44,7 @@ console.log(req.files)
     } ));
   
    
-
-
-
+// panel modo laser
 
     router.get('/agregar-modolaser',isLoggedIn,(req,res) =>{
       res.render('adm/agregarModoLaser');
@@ -66,7 +63,28 @@ router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync(
        await nuevoPRODUCTOLaser.save();
         res.redirect(`/administrador/modo-laser-producto${nuevoPRODUCTOLaser._id}`)
     
-        } ));
+      
+      } ));
+
+  router.get('/mostrar-modolaser',isLoggedIn,catchAsync(async(req,res) =>{
+
+    const modoLaserProductos = await ModoLaser.find({});
+    res.render('adm/mostrarModoLaser',{modoLaserProductos});
+    
+  
+  }));
+
+
+   router.get('/modo-laser/:id/editar',isLoggedIn,(req,res) =>{
+      res.render('adm/editModoLaser');
+  });
+
+  router.delete('/:id' ,isLoggedIn, catchAsync(async (req, res)=>{
+    const {id}= req.params;
+    const deleteProducto= await Propiedad.findByIdAndDelete(id);
+    res.redirect('/administrador');
+  }))
+
   // ACTUALIZAR UN PRODUCTO DEL de la base de datos
       // poblate the products with the form and values
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{

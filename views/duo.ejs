@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate')%>
+
+<main>
+    <div class="container">
+        <nav class="indicadorDePagina px-lg-4 d-flex mt-4" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
+                Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page"> <b>DUO</b> </li>
+          </ol>
+        </nav>
+        
+      </div>
+   <section >
+
+        <div class="container p-md-5 text-sm-start">
+            <h1 class=" text-center mb-2">
+               DUO
+            </h1>
+            <p class="my-3 mb-3 lead">Explora los productos exclusivos de <b>Alpinas</b>  </p>
+
+            
+
+
+                <div class="row">
+                    <div class="col-12 col-lg-4">
+                      <% for( let producto of productos ) { %>
+                        <div class="cardProductoAlpinas">
+                          <a href="/categorias/duo/<%= producto._id %>/ver-producto">
+                          <img class="img-fluid imagenProducto" src="<%= producto.url %>" alt="">
+                          <p  class="tituloProducto p-3 m-0 text-center"><%= producto.titulo %></p>  
+                          </a>
+                      </div>
+                      <% } %>
+                     
+        
+                    </div>
+                  </div>
+        
+  
+
+
+
+</main>
