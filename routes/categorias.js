@@ -8,10 +8,10 @@ const catchAsync =require('../utils/catchAsync');
 
 // mostrar PRODUCTOS MODO LASER
 router.get('/modo-laser', catchAsync( async (req, res) => {
-    const modoLaser = await ModoLaser.find({});
-      res.render('categorias/modo-laser',{modoLaser});
+    // const modoLaser = await ModoLaser.find({});
+      res.render('categorias/modo-laser');
     }));
-    
+
 // MOSTRAR TODOS LOS PRODUCTOS CAJAS
 router.get('/cajas', catchAsync( async (req, res) => {
     const productoCajas = await Producto.find({});
