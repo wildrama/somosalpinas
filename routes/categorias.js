@@ -11,7 +11,7 @@ router.get('/modo-laser', catchAsync( async (req, res) => {
     const modoLaser = await ModoLaser.find({});
       res.render('categorias/modo-laser',{modoLaser});
     }));
-
+    
 // MOSTRAR TODOS LOS PRODUCTOS CAJAS
 router.get('/cajas', catchAsync( async (req, res) => {
     const productoCajas = await Producto.find({});

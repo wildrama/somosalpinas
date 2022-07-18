@@ -3,6 +3,7 @@ const router = express.Router();
 const catchAsync =require('../utils/catchAsync');
 const {isLoggedIn} = require('../middleware');
 const Producto = require('../models/producto');
+const ModoLaser = require('../models/modoLaser');
 const {storage} = require('../cloudinary/index');
 const {cloudinary} = require('../cloudinary/index');
 
@@ -34,33 +35,52 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
   //
   router.post('/',isLoggedIn,  upload.array('imagenes'),catchAsync( async (req,res)=>{
- const qq = 'ASDFSF';
-
-  console.log(qq);
-    console.log(req.query)
-  
-    // const nuevoPRODUCTO = new Producto(req.body);
-  //  nuevoPRODUCTO.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
-    // console.log(nuevoPRODUCTO);
-    // console.log(req.files)
-
-  //  await nuevoPRODUCTO.save();
-    // res.redirect(`/administrador/${nuevoPRODUCTO._id}`)
-res.send('ok')
+console.log(req.body)
+    const nuevoPRODUCTO = new Producto(req.body);
+    nuevoPRODUCTO.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
+console.log(nuevoPRODUCTO);
+console.log(req.files)
+    await nuevoPRODUCTO.save();
+    res.redirect(`/administrador/${nuevoPRODUCTO._id}`)
     } ));
   
-  
+   
+
+
+
+
+    router.get('/agregar-modolaser',isLoggedIn,(req,res) =>{
+      res.render('adm/agregarModoLaser');
+    });
+    
+
+router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync( async (req,res)=>{
+     
+      
+    
+        const nuevoPRODUCTOLaser = new ModoLaser(req.body);
+        nuevoPRODUCTOLaser.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
+        console.log(nuevoPRODUCTOLaser);
+        console.log(req.files)
+    
+       await nuevoPRODUCTOLaser.save();
+        res.redirect(`/administrador/modo-laser-producto${nuevoPRODUCTOLaser._id}`)
+    
+        } ));
   // ACTUALIZAR UN PRODUCTO DEL de la base de datos
       // poblate the products with the form and values
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
     const {id} = req.params;
     const producto = await Producto.findById(id);
     if (!producto) {
-      req.flash('error', 'No se puede encontrar la publicación');
+      req.flash('error', 'No se puede encontrar el producto');
       return res.redirect('/administrador');
   }
     res.render('adm/editarproducto', {producto})
   }));
+
+
+
   
   // ENVIAR PUT REQUEST
   
