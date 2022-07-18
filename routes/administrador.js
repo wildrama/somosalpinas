@@ -3,6 +3,8 @@ const router = express.Router();
 const catchAsync =require('../utils/catchAsync');
 const {isLoggedIn} = require('../middleware');
 const Producto = require('../models/producto');
+const ModoLaser = require('../models/modoLaser');
+
 const {storage} = require('../cloudinary/index');
 const {cloudinary} = require('../cloudinary/index');
 
@@ -24,32 +26,51 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
     res.render('adm/mostrar',{user});
     
   })) ;
-
-
+  // router.post('/pruebapost', isLoggedIn,catchAsync(async (req, res) => {
+   
+ 
+    
+  // })) ;
   // RENDER agregar elemento
   
   router.get('/nuevo-producto',isLoggedIn,(req,res) =>{
     res.render('adm/crearProducto');
   });
+
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
   //
-  router.post('/',isLoggedIn,  upload.array('imagenes'),catchAsync( async (req,res)=>{
- const qq = 'ASDFSF';
+  router.post('/',upload.array('imagenes'),isLoggedIn,catchAsync( async (req,res)=>{
+console.log(req.body)
+    const nuevoPRODUCTO = new Producto(req.body);
+    nuevoPRODUCTO.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
+console.log(nuevoPRODUCTO);
+console.log(req.files)
+    await nuevoPRODUCTO.save();
+    res.redirect(`/administrador/${nuevoPRODUCTO._id}`)
 
-  console.log(qq);
-    console.log(req.query)
-  
-    // const nuevoPRODUCTO = new Producto(req.body);
-  //  nuevoPRODUCTO.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
-    // console.log(nuevoPRODUCTO);
-    // console.log(req.files)
-
-  //  await nuevoPRODUCTO.save();
-    // res.redirect(`/administrador/${nuevoPRODUCTO._id}`)
-res.send('ok')
     } ));
-  
-  
+
+
+
+
+router.get('/agregar-modolaser',isLoggedIn,(req,res) =>{
+      res.render('adm/agregarModoLaser');
+    });
+    
+
+router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync( async (req,res)=>{
+     
+      
+    
+        const nuevoPRODUCTOLaser = new ModoLaser(req.body);
+        nuevoPRODUCTOLaser.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
+        console.log(nuevoPRODUCTOLaser);
+        console.log(req.files)
+    
+       await nuevoPRODUCTOLaser.save();
+        res.redirect(`/administrador/modo-laser-producto${nuevoPRODUCTOLaser._id}`)
+    
+        } ));
   // ACTUALIZAR UN PRODUCTO DEL de la base de datos
       // poblate the products with the form and values
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
@@ -63,7 +84,7 @@ res.send('ok')
   }));
   
   // ENVIAR PUT REQUEST
-  
+  // editar producto
   router.put('/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
   const {id} = req.params;
   console.log(req.body);
@@ -84,7 +105,7 @@ res.send('ok')
   res.redirect(`/administrador/${upProducto._id}`)
   }))
   
-  
+  // editar modolaser
   
   // RENDER STOCK INDIVIDUAL
   router.get('/:id', isLoggedIn,catchAsync(async (req, res) =>{
