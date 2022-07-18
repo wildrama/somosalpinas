@@ -6,7 +6,7 @@ const port = 3041;
 const path = require('path');
 const methodOverride = require('method-override')
 const flash = require('connect-flash');
-const ejsMate = require('ejs-mate');
+const engine = require('ejs-mate');
 
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
@@ -58,10 +58,11 @@ app.use(express.static('public'));
 app.use(express.static('files'));
 
 // views and methodOverride
-// app.engine('ejs', ejsMate)
-app.engine('ejs', ejsMate);
-app.set('view engine', 'ejs');
+// app.engine('ejs', engine)
+app.engine('ejs', engine);
 app.set('views', path.join(__dirname, 'views'));
+
+app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
