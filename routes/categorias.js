@@ -5,13 +5,13 @@ const ModoLaser = require('../models/modoLaser')
 const catchAsync =require('../utils/catchAsync');
 
 
+// const modoLaserProductos = await ModoLaser.find({});,{modoLaserProductos}
 
 // mostrar PRODUCTOS MODO LASER
 router.get('/modo-laser', catchAsync( async (req, res) => {
   try {
-    console.log('MODOLASERGET')
-    const modoLaserProductos = await ModoLaser.find({});
-    res.render('modo-laser',{modoLaserProductos});
+    console.log('MODOLASERGET');
+    res.render('modo-laser');
   } catch (error) {
     console.log(error)
   }
