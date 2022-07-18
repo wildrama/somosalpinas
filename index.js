@@ -15,7 +15,6 @@ const multer = require('multer');
 
 const mongoose = require('mongoose');
 // require mongoose models
-const Propiedad = require('./models/propiedad.js');
 const Usuario = require('./models/usuario.js');
 // utils
 const catchAsync =require('./utils/catchAsync');
@@ -38,7 +37,6 @@ const sessionConfig = {
 // routes
 
 const admRoutes =require('./routes/administrador');
-const userUiRoutes= require('./routes/propiedades')
 const rutasUsuario = require('./routes/usuario')
 const categoriasRoutes = require('./routes/categorias')
 main().catch(err => console.log(err));
@@ -109,7 +107,7 @@ app.use((req, res, next) => {
 
 // Routes for admin
 app.use('/administrador',admRoutes);
-app.use('/', rutasUsuario )
+app.use('/',rutasUsuario);
 app.use('/categorias',categoriasRoutes);
 
 
@@ -127,7 +125,7 @@ app.use('/categorias',categoriasRoutes);
 
 // RENDER HOME
 app.get('/', (req, res) => {
-  res.render('inicio');
+  res.render('modo-laser');
 })
 
 
