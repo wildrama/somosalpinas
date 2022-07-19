@@ -5,7 +5,7 @@
       <nav class="indicadorDePagina px-lg-4 d-flex mt-4" aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
-              Inicio</a></li>
+            Administrador</a></li>
           
           <li class="breadcrumb-item active" aria-current="page"> <b>
               <%= producto.titulo %>
@@ -21,50 +21,53 @@
           <div class="col-lg-6">
             <div class="productoIndividualCard">
 
-              <!-- Carousel wrapper -->
-              <div id="carouselExampleIndicators" class="carousel carousel-dark slide carousel-fade"
-                data-mdb-ride="carousel">
-                <!-- Slides -->
-                <div class="carousel-inner mb-5">
-                  <% producto.imagenes.forEach( ( imagen , i )=> { %>
+              <div class="carutrap p-3">
+    <!-- Carousel wrapper -->
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide carousel-fade"
+    data-mdb-ride="carousel">
+    <!-- Slides -->
+    <div class="carousel-inner mb-5">
+      <% producto.imagenes.forEach( ( imagen , i )=> { %>
 
-                    <div class="carousel-item <%= i === 0? 'active':''%>">
-                      <img src="<%= imagen.show %>" class="d-block w-100" alt="..." />
-                    </div>
-                    <% }) %>
+        <div class="carousel-item <%= i === 0? 'active':''%>">
+          <img src="<%= imagen.show %>" class="d-block w-100" alt="..." />
+        </div>
+        <% }) %>
 
 
-                </div>
-                <!-- Slides -->
+    </div>
+    <!-- Slides -->
 
-                <!-- Controls -->
-                <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators"
-                  data-mdb-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previo</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators"
-                  data-mdb-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Siguiente</span>
-                </button>
-                <!-- Controls -->
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators"
+      data-mdb-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previo</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators"
+      data-mdb-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+    <!-- Controls -->
 
-                <!-- Thumbnails -->
-                <div class="carousel-indicators imagenProducto" style="margin-bottom: -20px;">
-                  <% producto.imagenes.forEach( ( imagen , i )=> { %>
+    <!-- Thumbnails -->
+    <div class="carousel-indicators imagenProducto" style="margin-bottom: -20px;">
+      <% producto.imagenes.forEach( ( imagen , i )=> { %>
 
-                    <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
-                      class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide <%= i %> "
-                      style="width: 100px;">
-                      <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />
-                    </button>
-                    <% }) %>
+        <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
+          class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide <%= i %> "
+          style="width: 100px;">
+          <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />
+        </button>
+        <% }) %>
 
-                </div>
-                <!-- Thumbnails -->
+    </div>
+    <!-- Thumbnails -->
+  </div>
+  <!-- Carousel wrapper -->
               </div>
-              <!-- Carousel wrapper -->
+          
               <p class="titulo">
                 <%= producto.titulo %>
 
@@ -82,7 +85,35 @@
               </p>
 
               <p>MEDIDAS:</p>
+              <%= producto.medidas %>
 
+              <div class="d-flex   ustify-content-around py-4">
+                  
+              <div class="modal" tabindex="-1">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Eliminar el producto</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <p>Esta seguro de eliminar el producto</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                      <form class="d-inline px-2" action="/administrador/<%= producto._id%>?_method=DELETE" method="post">
+                        <button class="btn btn-warning">Eliminar</button>
+                    </form>                  
+                     </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+
+                <a href="/administrador/<%= producto._id %>/editar" class="btn btn-outline-primary">Editar</a>
+
+              </div>
             </div>
           </div>
         </div>

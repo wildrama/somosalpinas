@@ -4,11 +4,15 @@
     <nav id="navAlpinas" class="navbar navbar-expand-lg  " >
         <div  class="container  d-lg-none ">  
         <a class="" href="/" > 
-            <img class="img-fluid navbar-brand"  src="/Logo.png" alt="">
+            <img class="img-fluid navbar-brand"  src="/logo/LogoWeb.png" alt="">
         </a>
+        <a style="transform: translateX(15vh);" id="shopcartnav"  href="#" class="pl-4">
+          <img class="img-fluid navbar-brand" src="/shopCart.png" style="width:45px ;height: 55px ;" alt="">
+      </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon text-start "></span>
           </button>
+          
           <div class="collapse navbar-collapse my-3" id="navbarSupportedContent">    
                 <ul class="navbar-nav mb-2"> 
                   <a href="/categorias/modo-laser" class="navItemAlpinas">
@@ -30,7 +34,7 @@
                       <div style=" background-color: #ECAC86" id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                        
                             <ul class="list-unstyled subItems px-3" aria-labelledby="navbarPRODUCTOS">
-                                <li id="firstLI"><a class="" href="/categorias/todos">Ver todos los productos</a></li>
+                                <!-- <li id="firstLI"><a class="" href="/categorias/todos">Ver todos los productos</a></li> -->
                                 <li><a class="" href="/categorias/ABC">Abc</a></li>
                                 <li><a class="" href="/categorias/cajas">Cajas para imaginar y crear</a></li>
                                 <li><a class="" href="/categorias/DUO">Duo</a></li>
@@ -69,45 +73,44 @@
         </div>
       
     </div>
-    <di.v id="webNavBar" class=" container text-center pt-1 pb-1  d-none d-lg-block">
-        <div class="row navegacion d-flex justify-content-center">
+    <div id="webNavBar" class=" container text-center d-none d-lg-block">
+        <div class="row navegacion d-flex justify-content-around">
     
-            <div class="col-4 logotipo">
-                <div class="logo mx-3">
+            <div class="col-2 logotipo">
+                <div class="logo  ">
                     <a href="/" class="">
-                        <img class="img-fluid navbar-brand" src="/logo/Logo.png" alt="">
+                        <img  class="img-fluid navbar-brand" src="/logo/LogoWeb.png" alt="">
                     </a>
                 </div>
-    
+                
             </div>
-    
-            <div  class="col-8 pt-2 ">
-                <div class="d-flex justify-content-between align-items-center">
-                    
-                        
-                        
-                            <div  style="background-color: #ECAC86; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);" class="btn-group">
-                              <button style="background-color: #ECAC86;font-size: 22px;" type="button" class="btn btn-danger">PRODUCTOS</button>
-                              <button style="background-color: #ECAC86;" type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split " data-bs-toggle="dropdown" aria-expanded="false">
-                                <span class="visually-hidden">x</span>
-                              </button>
-                              <ul  class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/categorias/todos">Todos los productos</a></li>
+            
+            <div  class="col-6 ">
+                <div class="d-flex mt-3 justify-content-between align-items-center">
 
-                                <li><a class="dropdown-item" href="/categorias/cajas">Cajas para imaginar y crear</a></li>
-                                <li><a class="dropdown-item" href="/categorias/pizarras">Pizarras</a></li>
-                                <li><a class="dropdown-item" href="/categorias/ABC">Abc</a></li>
-                                <li><a class="dropdown-item" href="/categorias/DUO">Duo</a></li>
-                                <li><a class="dropdown-item" href="/categorias/mapas">Mapas</a></li>
-                                <li><a class="dropdown-item" href="/categorias/sellos">Sellos</a></li>
-                                <li><a class="dropdown-item" href="/categorias/domino">Dominó</a></li>
-                                <li><a class="dropdown-item" href="/categorias/memotest">Memotest</a></li>
-                                
+                  <div  class="dropdown">
+                    <button style="background-color: #ECAC86; box-shadow: 0px 0px 0px rgba(0, 0, 0, 0); font-size: 22px;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      PRODUCTOS
+                    </button>
+                    <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
+                      <!-- <li><a class="dropdown-item" href="/categorias/todos">Todos los productos</a></li> -->
 
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/categorias/modo-laser">Modo Lasér</a></li>
-                              </ul>
-                            </div>
+                      <li><a class="dropdown-item" href="/categorias/cajas">Cajas para imaginar y crear</a></li>
+                      <li><a class="dropdown-item" href="/categorias/pizarras">Pizarras</a></li>
+                      <li><a class="dropdown-item" href="/categorias/ABC">Abc</a></li>
+                      <li><a class="dropdown-item" href="/categorias/DUO">Duo</a></li>
+                      <li><a class="dropdown-item" href="/categorias/mapas">Mapas</a></li>
+                      <li><a class="dropdown-item" href="/categorias/sellos">Sellos</a></li>
+                      <li><a class="dropdown-item" href="/categorias/domino">Dominó</a></li>
+                      <li><a class="dropdown-item" href="/categorias/memotest">Memotest</a></li>
+                      
+
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item" href="/categorias/modo-laser">Modo Lasér</a></li>
+                    </ul>
+                  </div>
+                          
+                            
                                        
                     
                         <a style="color: white;" href="/categorias/modo-laser" class=" ">MODO LASÉR</a>
@@ -115,11 +118,11 @@
                     
                         <!-- <a style="color: white;" href="/deYapa">DE YAPA</a> -->
                   
-                      
-                  
-                        <a  href="/carrito" class="m-0">
+                        <a  href="#" class="">
                           <img class="img-fluid navbar-brand" src="/shopCart.png" style="width:45px ;height: 55px ;" alt="">
                       </a>
+                  
+                       
                 </div>
                
             </div>

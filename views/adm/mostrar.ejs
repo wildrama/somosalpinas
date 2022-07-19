@@ -33,8 +33,8 @@
             </div>
         </div>
         
-        <div class="row mt-3">         
-                   <p>agregar, editar, ver, eliminar</p>
+        <div class="row mt-3 text-center">         
+            
                    <h2>Todos las categorias</h2>
    
                    <% for( let producto of productos ) { %>
@@ -43,7 +43,10 @@
                     <div class="card " style="width: 18rem;">
                         <img src="<%= producto.imagenes[0].show %>" class="card-img-top" alt="...">
                         <div class="card-body">
-                          <h5 class="card-title"><%= producto.titulo %> </h5>
+                            <p class="card-text text-muted text-end"><%= producto.categoria %> </p>
+
+                            <h5 class="card-title p-1"><%= producto.titulo %> </h5>
+
                           <p class="card-text"><%= producto.caracteristicas %> </p>
                           <a href="/administrador/<%= producto._id %>" class="btn btn-primary">Ver</a>
                         </div>

@@ -76,11 +76,17 @@ router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync(
   }));
 
 
-   router.get('/modo-laser/:id/editar',isLoggedIn,(req,res) =>{
-      res.render('adm/editModoLaser');
-  });
-
  
+ 
+  router.get('/modo-laser/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
+    const {id} = req.params;
+    const productoModoLaser = await ModoLaser.findById(id);
+    if (!productoModoLaser) {
+      req.flash('error', 'No se puede encontrar el productoModoLaser');
+      return res.redirect('/administrador');
+  }
+    res.render('adm/editModoLaser', {productoModoLaser})
+  }));
 
 
   router.put('/modo-laser/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
@@ -103,11 +109,21 @@ router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync(
     res.redirect(`/administrador/mostrar-modolaser`)
     }))
      
+   router.get('/modo-laser/:id/eliminar',isLoggedIn,catchAsync(async(req,res) =>{
+const idML = req.params.id;
+    const modoLaserProducto = await ModoLaser.findById(idML);
+    res.render('adm/eliminarModoLaser',{modoLaserProducto});
+    
+  
+  }));
     router.delete('/modo-laser/:id' ,isLoggedIn, catchAsync(async (req, res)=>{
       const {id}= req.params;
-      const deleteProducto= await Propiedad.findByIdAndDelete(id);
+      const deleteProducto= await ModoLaser.findByIdAndDelete(id);
+      req.flash('success', 'Publicación eliminada correctamente');
       res.redirect('/administrador');
     }))
+
+
   // ACTUALIZAR UN PRODUCTO DEL de la base de datos
       // poblate the products with the form and values
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
@@ -117,7 +133,7 @@ router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync(
       req.flash('error', 'No se puede encontrar el producto');
       return res.redirect('/administrador');
   }
-    res.render('adm/editarproducto', {producto})
+    res.render('adm/editarProducto', {producto})
   }));
 
 
@@ -128,7 +144,7 @@ router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync(
   router.put('/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
   const {id} = req.params;
   console.log(req.body);
-  const upProducto = await Propiedad.findByIdAndUpdate(id, req.body);
+  const upProducto = await Producto.findByIdAndUpdate(id, req.body);
     console.log(req.files)
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
   upProducto.imagenes.push(...imgs);
@@ -160,7 +176,9 @@ router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync(
   
   router.delete('/:id' ,isLoggedIn, catchAsync(async (req, res)=>{
     const {id}= req.params;
-    const deleteProducto= await Propiedad.findByIdAndDelete(id);
+    const deleteProducto= await Producto.findByIdAndDelete(id);
+    req.flash('success', 'Publicación eliminada correctamente');
+
     res.redirect('/administrador');
   }))
 
