@@ -8,7 +8,7 @@
               Inicio</a></li>
             
           <li class="breadcrumb-item active" aria-current="page"> <b>
-              <%= producto.titulo %>
+             MODO-LASER
             </b> </li>
         </ol>
       </nav>
@@ -17,21 +17,29 @@
     <section>
 
       <div class="container p-md-4 text-sm-start">
-
-        <% for (let modoLaserPro of modoLaserProductos) {
+ 
+      
             
 
             <div class="row galeria-edit mb-3 p-3 border">
-                <div class=" col-lg-4">
-                <img src="<%= imagen.show %>" class="d-block w-100" alt="" />
-                <a href="/administrador/modo-laser/<%= modoLaserPro._id %>/editar">Editar</a>
+              <% for (let modoLaserPro of modoLaserProductos) { %>
+                  
+              <div class=" col-lg-4 text-center">
+
+
+                <img src="<%= modoLaserPro.imagenes[0].carrusel %>" class="d-block w-100" alt="">
+                <p class="lead">
+                  <%= modoLaserPro.titulo %> 
+                </p>
+                <a class="btn btn-secondary mt-2" href="/administrador/modo-laser/<%= modoLaserPro._id %>/editar">Editar </a>
             </div>
-                          
+           
+          <%  }  %>
+            
           </div>
       
 
 
-        } %> 
       </div>
 
 

@@ -22,7 +22,8 @@ const upload = multer({storage});
 // RENDER VER mostrar elementos Inicio de CRUD ADMIN
 router.get('/', isLoggedIn,catchAsync(async (req, res) => {
     const user = req.user
-    res.render('adm/mostrar',{user});
+    const productos = await Producto.find({})
+    res.render('adm/mostrar',{productos,user});
     
   })) ;
 
@@ -59,9 +60,9 @@ router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync(
         nuevoPRODUCTOLaser.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
         console.log(nuevoPRODUCTOLaser);
         console.log(req.files)
-    
+
        await nuevoPRODUCTOLaser.save();
-        res.redirect(`/administrador/modo-laser-producto${nuevoPRODUCTOLaser._id}`)
+        res.redirect(`/administrador/mostrar-modolaser`)
     
       
       } ));
@@ -79,12 +80,34 @@ router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync(
       res.render('adm/editModoLaser');
   });
 
-  router.delete('/:id' ,isLoggedIn, catchAsync(async (req, res)=>{
-    const {id}= req.params;
-    const deleteProducto= await Propiedad.findByIdAndDelete(id);
-    res.redirect('/administrador');
-  }))
+ 
 
+
+  router.put('/modo-laser/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
+    const {id} = req.params;
+    console.log(req.body);
+    const upModoLaser = await ModoLaser.findByIdAndUpdate(id, req.body);
+      console.log(req.files)
+      const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
+    upModoLaser.imagenes.push(...imgs);
+    await upModoLaser.save();
+  
+    if (req.body.deleteImagenes) {
+      for (let filename of req.body.deleteImagenes) {
+          await cloudinary.uploader.destroy(filename);
+      }
+      await upModoLaser.updateOne({ $pull: { imagenes: { filename: { $in: req.body.deleteImagenes } } } })
+  }
+  
+    req.flash('success', 'Publicación actualizada correctamente');
+    res.redirect(`/administrador/mostrar-modolaser`)
+    }))
+     
+    router.delete('/modo-laser/:id' ,isLoggedIn, catchAsync(async (req, res)=>{
+      const {id}= req.params;
+      const deleteProducto= await Propiedad.findByIdAndDelete(id);
+      res.redirect('/administrador');
+    }))
   // ACTUALIZAR UN PRODUCTO DEL de la base de datos
       // poblate the products with the form and values
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{

@@ -17,27 +17,40 @@
             </div>
         </div>
         <div class="row mt-3">
-            <div class="col-12 text-center">
+            <div class="col-12 col-lg-6 text-center">
                 <h2>Crear nuevo producto</h2>
-                
-                <a class="btn btn-secondary " href="/administrador/nuevo-producto">Nuevo Producto</a>
+
+                <a class="btn btn-success " href="/administrador/nuevo-producto">Nuevo Producto</a>
                 
             </div>
-        </div>
-        
-        <div class="row mt-3">
-            <div class="col-12 text-center">
-                <h2>Agregar a MODO LASER</h2>
+      
+            <div class="col-12 col-lg-6 text-center">
+                <h2> MODO LASER</h2>
 
                 <a class="btn btn-secondary " href="/administrador/agregar-modolaser"> Agregar</a>                
+                <a class="btn btn-secondary " href="/administrador/mostrar-modolaser"> Ver</a>                
+
             </div>
         </div>
         
-        <div class="row mt-3">
-            <div class="col-12 ">
-                <h2>Todos las categorias</h2>
-
-
+        <div class="row mt-3">         
+                   <p>agregar, editar, ver, eliminar</p>
+                   <h2>Todos las categorias</h2>
+   
+                   <% for( let producto of productos ) { %>
+                         <div class="col-12 col-md-4 col-lg-3 p-lg-3">
+             
+                    <div class="card " style="width: 18rem;">
+                        <img src="<%= producto.imagenes[0].show %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= producto.titulo %> </h5>
+                          <p class="card-text"><%= producto.caracteristicas %> </p>
+                          <a href="/administrador/<%= producto._id %>" class="btn btn-primary">Ver</a>
+                        </div>
+                      </div>
+            
             </div>
+            <% } %>
+
         </div>
     </div>

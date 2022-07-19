@@ -215,6 +215,10 @@ main .exploraBtn:hover img {
   background-color: #00E676;
 }
 
+.agregarProducto:hover {
+  color: #5B2F57;
+}
+
 .envioText {
   font-size: 24px;
   color: #404042;
