@@ -13,14 +13,17 @@
   <div class="container">
     <div class="row mt-3">
       <h4 class="h4 text-center">Crear publicación</h4>
-
+      <p class="text-muted px-4">
+        Se recomienda pasar previamente las imagenes por <a href="https://tinypng.com/"> Tinypng </a> O <a href="https://bulkresizephotos.com/en"> BulkReizePhotos</a> o similares.
+        Los formatos aceptados son JPG, JPEG, PNG . HASTA 7MB POR ARCHIVO 
+      </p>
       <div class="col-4"></div>
       <div class="col-12 col-lg-4 tex">
         <form action="/administrador" method="post" enctype="multipart/form-data">
 
       
           <label for="tipo">Tipo de publicación</label>
-          <select name="categoria" id="categoria" class="form-select" aria-label="Categoria producto">
+          <select name="categoria" id="categoria" class="form-select" aria-label="Categoria producto" required>
             <option selected>Abrir el menu para seleccionar la categoria</option>
             <option value="Cajas">Cajas</option>
             <option value="Pizarra">Pizarra</option>
