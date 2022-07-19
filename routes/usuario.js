@@ -44,13 +44,12 @@ router.post('/ingresar', passport.authenticate('local', { failureFlash: true, fa
     req.flash('success', "Cerraste la sesion administrador");
     res.redirect('/');
 })
-router.get('/cerrarsesion', function(req, res, next) {
-    req.logout(function(err) {
-      if (err) { return next(err); }
-      req.flash('success', "Cerraste la sesion administrador");
+router.get('/cerrarsesion', (req, res) =>{
 
+      req.flash('success', "Cerraste la sesion administrador");
+    
       res.redirect('/');
     });
-  });
+  
 
 module.exports= router;
