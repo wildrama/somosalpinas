@@ -45,10 +45,10 @@ router.post('/ingresar', passport.authenticate('local', { failureFlash: true, fa
     res.redirect('/');
 })
 
-router.get('/cerrar-sesion',catchAsync( async (req,res)=>{
-    await req.logOut();
+router.get('/cerrar-sesion',catchAsync(  (req,res,next)=>{
+   req.logOut();
     req.flash('success','Sesión cerrada correctamente')
-    res.redirect('/')
+    res.redirect('/modo-laser')
   }));
 
 module.exports= router;
