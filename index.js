@@ -126,7 +126,7 @@ app.use('/categorias',categoriasRoutes);
 
 // RENDER HOME
 app.get('/', (req, res) => {
-  res.render('modo-laser');
+  res.render('inicio');
 })
 
 

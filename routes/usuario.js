@@ -39,16 +39,14 @@ router.post('/ingresar', passport.authenticate('local', { failureFlash: true, fa
     res.redirect(redirectUrl);
 })  
 
-.get('', (req, res) => {
-    req.logout();
-    req.flash('success', "Cerraste la sesion administrador");
-    res.redirect('/');
-})
 
-router.get('/cerrar-sesion',catchAsync(  (req,res,next)=>{
-   req.logOut();
-    req.flash('success','Sesión cerrada correctamente')
-    res.redirect('/modo-laser')
-  }));
 
+  router.get('/cerrar-sesion', function(req, res, next) {
+    req.logout(function(err) {
+      if (err) { return next(err); }
+      req.flash('success','Sesión cerrada correctamente')
+
+      res.redirect('/');
+    });
+  });
 module.exports= router;

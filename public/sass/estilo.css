@@ -178,7 +178,7 @@ main .exploraBtn:hover img {
   border-radius: 10px;
 }
 
-#modoLaserIg {
+.modoLaserIg {
   background-color: white;
   color: black;
   padding: 1em 2em;

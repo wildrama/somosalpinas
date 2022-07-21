@@ -17,7 +17,7 @@
             <form action="/administrador/modo-laser/<%= producto._id %>?_method=PUT" method="post"  enctype="multipart/form-data">
 
               <label for="tipo">Tipo de publicación</label>
-              <select name="categoria" id="categoria" class="form-select" aria-label="Categoria producto">
+              <select name="categoria" id="categoria" class="form-select mb-3" aria-label="Categoria producto">
                 <option selected>Abrir el menu para seleccionar la categoria</option>
                 <option value="Cajas">Cajas</option>
                 <option value="Pizarra">Pizarra</option>
@@ -40,39 +40,36 @@
               </div>
     
     
-              <label for="caracteristicas" class="form-label">Características de la publicación</label>
-              <div class="input-group mb-3">
-             
+              <div class=" mb-3">
+                <label for="caracteristicas" class="form-label">Características de la publicación</label>
+
                 <textarea  placeholder="Ingresar caracteristicas del producto" name="caracteristicas" id="caracteristicas" class="form-control" rows="3">
                  <%= producto.caracteristicas %>
                 </textarea>
     
               </div>
-              <label for="incluye" class="form-label">Características de la publicación</label>
-              <div class="input-group mb-3">
-             
-                <textarea placeholder="Que incluye" name="incluye" id="incluye" class="form-control" rows="3">
-                  <%= producto.incluye %>
-                </textarea>
+              <div class=" mb-3">
+                
+              <label for="incluye" class="form-label">Incluye</label>
+                  <textarea class="form-control" name="incluye" id="incluye" rows="3"><%= producto.caracteristicas %></textarea>
+               
+      
+                
     
               </div>
     
-              <label for="medidas" class="form-label">Medidas</label>
-              <div class="input-group mb-3">
-             
-                <textarea placeholder="Ingresar medidas del producto" name="medidas" id="medidas" class="form-control" rows="3">
-                  <%= producto.caracteristicas %>
-                </textarea>
-    
+            
+              <div class="mb-3">
+                <label for="medidas" class="form-label">Medidas</label>
+                <textarea class="form-control"  name="medidas" id="medidas" rows="3"><%= producto.caracteristicas %></textarea>
               </div>
-             
     
     
-    <!-- precio -->
+    <!-- precio -->   <div class="input-group mb-3">
               <label for="precio" class="form-label">Precio del Producto</label>
-              <div class="input-group mb-3">
-                <input value=" <%= producto.precio %>" placeholder="Ingresar precio del producto" type="text" name="precio" class="form-control" id="precio" required aria-describedby="passwordHelpBlock">
-             
+           
+                <input value=" <%= producto.precio %>" placeholder="Ingresar precio del producto" type="text" name="precio" class="form-control mx-4" id="precio" required aria-describedby="passwordHelpBlock">
+                </div>
             <div class="mb-3">
               <label for="imagenes" class="form-label">Actualizar Imagenes</label>
               <input class="form-control" name="imagenes" type="file" id="imagenes" multiple>
