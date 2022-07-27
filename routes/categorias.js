@@ -39,8 +39,8 @@ router.get('/cajas', catchAsync( async (req, res) => {
    // MOSTRAR TODOS LOS PRODUCTOS DUO
 router.get('/DUO', catchAsync( async (req, res) => {
   try {
-    const productos1 = await Producto.find({categoria:'DUO'});
-    res.render('duo',{productos1});
+    const productos132 = await Producto.find({categoria:'DUO'});
+    res.render('duo',{productos132});
   } catch (error) {
     console.log(error)
   }
@@ -146,7 +146,7 @@ router.get('/ABC/:id/ver-producto', catchAsync( async (req, res) => {
   }))
     
   // MOSTRAR CADA PRODUCTO DUO
-router.get('/DUO/:id/ver-producto', catchAsync( async (req, res) => {
+router.get('/duo/:id/ver-producto', catchAsync( async (req, res) => {
   const idProducto = req.params.id;
   const producto = await Producto.findById(idProducto);
     res.render('productoIndividualDUO',{producto});
