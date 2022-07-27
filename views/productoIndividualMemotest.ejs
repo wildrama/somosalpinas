@@ -17,7 +17,7 @@
       
         <div class="container mt-4 p-md-5 text-sm-start">
             <div class="row justify-content-center productoIndividualCard text-center  py-2">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                   
                       <div class="carus p-1 mb-5">
                            <!-- Carousel wrapper -->
@@ -69,7 +69,7 @@
                      
                     </div>
              
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                   <p style="font-weight: 600; color: black;" class="titulo text-start">
                     <%= producto.titulo %> 
 
@@ -81,12 +81,18 @@
                   <p class="caracteristicas text-start">
                     <%= producto.caracteristicas %>                  
                          </p> 
-                  <p class="text-start" style="font-weight: 600; color: black;" >INCLUYE:</p>
+                         <% if (producto.incluye) { %>
+                          <p class="text-start" style="font-weight: 600; color: black;" >INCLUYEatr:</p>
                   <p class="incluye text-start">
                     <%= producto.incluye %>                       
                     </p>
+                         <% } %>
+                  
                     
                   <p class="text-start" style="font-weight: 600; color: black;" >MEDIDAS:</p>
+                  <p class="medidas text-start">
+                    <%= producto.medidas %>                       
+                    </p>
 
                   <a href="/pedido/<%= producto._id %>/agregar" class="text-center agregarProducto">
                       Agregar <img class="px-3" src="/shopCart.png" alt="">
