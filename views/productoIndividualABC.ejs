@@ -85,9 +85,12 @@
                   <p class="incluye text-start">
                     <%= producto.incluye %>                       
                     </p>
-                    
+                    <p class="text-start" style="font-weight: 600; color: black;" >MEDIDAS:</p>
+                    <p class="medidas text-start">
+                      <%= producto.medidas %>                       
+                      </p>
                   <p class="text-start" style="font-weight: 600; color: black;" >MEDIDAS:</p>
-
+                      
                   <a href="/pedido/<%= producto._id %>/agregar" class="text-center agregarProducto">
                       Agregar <img class="px-3" src="/shopCart.png" alt="">
                   </a>
