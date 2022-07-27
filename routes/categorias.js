@@ -73,7 +73,7 @@ router.get('/ABC', catchAsync( async (req, res) => {
       // MOSTRAR TODOS LOS PRODUCTOS pizarras
       router.get('/pizarras', catchAsync( async (req, res) => {
         try {
-          const productos4 = await Producto.find({categoria:'Pizarras'});
+          const productos4 = await Producto.find({categoria:'Pizarra'});
           res.render('pizarras',{productos4});
         } catch (error) {
           console.log(error)
