@@ -146,8 +146,9 @@ const idML = req.params.id;
     res.render('adm/editarProducto', {producto})
   }));
 
-      // poblate the products with the form and values
-      router.get('/:id/editar-foto',isLoggedIn,catchAsync( async (req,res) =>{
+
+     // poblate the products with the form and values
+     router.get('/:id/editar-foto',isLoggedIn,catchAsync( async (req,res) =>{
         const {id} = req.params;
         const producto = await Producto.findById(id);
         if (!producto) {
@@ -161,20 +162,26 @@ const idML = req.params.id;
   
   // ENVIAR PUT REQUEST
   // ,upload.array('imagenes')
-  router.put('/:id/editar-foto',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
+  router.put('/editar-foto/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
     const {id} = req.params;
-    const upProducto = await Producto.findById(id);
+    const upProducto = await Producto.findByIdAndUpdate(id, req.body);
       console.log("upproducto"+ upProducto)
       const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
     upProducto.imagenes.push(...imgs);
+    console.log( imgs)
+
     await upProducto.save();
     console.log("req.body.deleteImagenes" +req.body.deleteImagenes);
 
-  //   if (req.body.deleteImagenes) {
-  //     for (let filename of req.body.deleteImagenes) {
-  //         await cloudinary.uploader.destroy(filename);
-  //     }
-  // }
+    if (req.body.deleteImagenes) {
+      for (let filename of req.body.deleteImagenes) {
+          await cloudinary.uploader.destroy(filename);
+      }
+  }
+  console.log( imgs)
+
+  await upProducto.updateOne({ $pull: { imagenes: { filename: { $in: req.body.deleteImagenes } } } })
+
     req.flash('success', 'Publicación actualizada correctamente');
     res.redirect(`/administrador/${upProducto._id}`)
     }))
