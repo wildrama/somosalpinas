@@ -23,6 +23,7 @@ router.get('/modo-laser', catchAsync( async (req, res) => {
 router.get('/cajas', catchAsync( async (req, res) => {
   try {
     const productos = await Producto.find({categoria:'Cajas'});
+    console.log(productos)
     res.render('cajas',{productos});
   } catch (error) {
     console.log(error)
@@ -50,6 +51,7 @@ router.get('/DUO', catchAsync( async (req, res) => {
 router.get('/ABC', catchAsync( async (req, res) => {
   try {
     const productos = await Producto.find({categoria:'ABC'});
+    console.log(productos)
     res.render('abc',{productos});
   } catch (error) {
     console.log(error)
@@ -89,7 +91,7 @@ router.get('/ABC', catchAsync( async (req, res) => {
   router.get('/mapas', catchAsync( async (req, res) => {
     try {
       const productos = await Producto.find({categoria:'Mapas'});
-      res.render('cajas',{productos});
+      res.render('mapas',{productos});
     } catch (error) {
       console.log(error)
     }
@@ -100,7 +102,7 @@ router.get('/ABC', catchAsync( async (req, res) => {
   router.get('/memotest', catchAsync( async (req, res) => {
     try {
       const productos = await Producto.find({categoria:'Memotest'});
-      res.render('cajas',{productos});
+      res.render('memotest',{productos});
     } catch (error) {
       console.log(error)
     }
