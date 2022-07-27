@@ -37,8 +37,10 @@ const sessionConfig = {
 // routes
 
 const admRoutes =require('./routes/administrador');
-const rutasUsuario = require('./routes/usuario')
-const categoriasRoutes = require('./routes/categorias')
+const rutasUsuario = require('./routes/usuario');
+const rutasShopCart = require('./routes/shopCart');
+const categoriasRoutes = require('./routes/categorias');
+
 main().catch(err => console.log(err));
 
 async function main() {
@@ -109,6 +111,7 @@ app.use((req, res, next) => {
 // Routes for admin
 app.use('/administrador',admRoutes);
 app.use('/',rutasUsuario);
+app.use('/carrito',rutasShopCart);
 app.use('/categorias',categoriasRoutes);
 
 
@@ -126,7 +129,10 @@ app.use('/categorias',categoriasRoutes);
 
 // RENDER HOME
 app.get('/', (req, res) => {
-  res.render('inicio');
+  req.session.viewCount += 1;
+  console.log(req.session)
+
+  res.render('inicio',{viewCount : req.session.viewCount});
 })
 
 

@@ -11,7 +11,7 @@ ImagenSchemaML.virtual('thumbnail').get(function() {
   return this.url.replace('/upload', '/upload/w_200');
 });
 ImagenSchemaML.virtual('show').get(function() {
-  return this.url.replace('/upload', '/upload/c_scale,h_400,w_600');
+  return this.url.replace('/upload', '/upload/c_scale,w_600');
 });
 ImagenSchemaML.virtual('crop').get(function(){
 
