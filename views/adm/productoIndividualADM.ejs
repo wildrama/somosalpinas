@@ -67,13 +67,15 @@
   </div>
   <!-- Carousel wrapper -->
               </div>
-          
-              <p class="titulo">
+              <p class="categoria">
+                <% producto.categoria %> 
+              </p>
+              <p class="titulo lead">
                 <%= producto.titulo %>
 
               </p>
               <p class="precio">
-                <%= producto.precio %>
+              $<%= producto.precio %>
               </p>
               <p>CARACTERISTICAS:</p>
               <p class="caracteristicas">
@@ -84,34 +86,43 @@
                 <%= producto.incluye %>
               </p>
 
-              <p>MEDIDAS:</p>
+              <p>MEDIDAS:</p> 
               <%= producto.medidas %>
 
-              <div class="d-flex   ustify-content-around py-4">
+              <div class="d-flex   justify-content-around py-4">
                   
-              <div class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">Eliminar el producto</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <p>Esta seguro de eliminar el producto</p>
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                      <form class="d-inline px-2" action="/administrador/<%= producto._id%>?_method=DELETE" method="post">
-                        <button class="btn btn-warning">Eliminar</button>
-                    </form>                  
-                     </div>
-                  </div>
-                </div>
-              </div>
-              
+           
+              <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Eliminar el producto
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eliminar el producto</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Esta seguro de eliminar el producto</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <form class="d-inline px-2" action="/administrador/<%= producto._id%>?_method=DELETE" method="post">
+          <button class="btn btn-warning">Eliminar</button>
+      </form>                  
+       </div>
+    </div>
+  </div>
+</div>
+
               
 
-                <a href="/administrador/<%= producto._id %>/editar" class="btn btn-outline-primary">Editar</a>
+                <a href="/administrador/<%= producto._id %>/editar" class="btn btn-outline-primary">Editar producto</a>
+                <a href="/administrador/<%= producto._id %>/editar-foto" class="btn btn-outline-primary">Editar foto</a>
 
               </div>
             </div>

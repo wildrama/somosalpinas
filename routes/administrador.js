@@ -97,7 +97,7 @@ router.post('/agregar-modolaser',upload.array('imagenes'),isLoggedIn,catchAsync(
       const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
     upModoLaser.imagenes.push(...imgs);
     await upModoLaser.save();
-  
+    
     if (req.body.deleteImagenes) {
       for (let filename of req.body.deleteImagenes) {
           await cloudinary.uploader.destroy(filename);
@@ -124,6 +124,16 @@ const idML = req.params.id;
     }))
 
 
+
+  
+  // RENDER STOCK INDIVIDUAL
+  router.get('/:id', isLoggedIn,catchAsync(async (req, res) =>{
+    const {id} = req.params;
+
+   const producto = await Producto.findById(id)
+   res.render('adm/productoIndividualADM',{producto});
+  } ))
+  
   // ACTUALIZAR UN PRODUCTO DEL de la base de datos
       // poblate the products with the form and values
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
@@ -136,41 +146,61 @@ const idML = req.params.id;
     res.render('adm/editarProducto', {producto})
   }));
 
+      // poblate the products with the form and values
+      router.get('/:id/editar-foto',isLoggedIn,catchAsync( async (req,res) =>{
+        const {id} = req.params;
+        const producto = await Producto.findById(id);
+        if (!producto) {
+          req.flash('error', 'No se puede encontrar el producto');
+          return res.redirect('/administrador');
+      }
+        res.render('adm/editarProductoFoto', {producto})
+      }));
+    
+    
+  
+  // ENVIAR PUT REQUEST
+  // ,upload.array('imagenes')
+  router.put('/:id/editar-foto',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
+    const {id} = req.params;
+    const upProducto = await Producto.findById(id);
+      console.log("upproducto"+ upProducto)
+      const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
+    upProducto.imagenes.push(...imgs);
+    await upProducto.save();
+    console.log("req.body.deleteImagenes" +req.body.deleteImagenes);
 
+  //   if (req.body.deleteImagenes) {
+  //     for (let filename of req.body.deleteImagenes) {
+  //         await cloudinary.uploader.destroy(filename);
+  //     }
+  // }
+    req.flash('success', 'Publicación actualizada correctamente');
+    res.redirect(`/administrador/${upProducto._id}`)
+    }))
+    
+    
 
   
   // ENVIAR PUT REQUEST
-  
-  router.put('/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
+  // ,upload.array('imagenes')
+  router.put('/:id', isLoggedIn,catchAsync( async (req,res)=>{
   const {id} = req.params;
-  console.log(req.body);
   const upProducto = await Producto.findByIdAndUpdate(id, req.body);
-    console.log(req.files)
-    const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
-  upProducto.imagenes.push(...imgs);
-  await upProducto.save();
-
-  if (req.body.deleteImagenes) {
-    for (let filename of req.body.deleteImagenes) {
-        await cloudinary.uploader.destroy(filename);
-    }
-    await upProducto.updateOne({ $pull: { imagenes: { filename: { $in: req.body.deleteImagenes } } } })
-}
-
+  console.log(upProducto);
+    // const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
+  // upProducto.imagenes.push(...imgs);
+  // if (req.body.deleteImagenes) {
+  //   for (let filename of req.body.deleteImagenes) {
+  //       await cloudinary.uploader.destroy(filename);
+  //   }
+// }
   req.flash('success', 'Publicación actualizada correctamente');
   res.redirect(`/administrador/${upProducto._id}`)
   }))
   
   
-  
-  // RENDER STOCK INDIVIDUAL
-  router.get('/:id', isLoggedIn,catchAsync(async (req, res) =>{
-    const {id} = req.params;
 
-   const producto = await Producto.findById(id)
-   res.render('adm/productoIndividualADM',{producto});
-  } ))
-  
   
   // BORRAR STOCK INDIVIDUAL
   

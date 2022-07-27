@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate')%>
+<div class="container">
+    <nav class="indicadorDePagina px-4 d-flex mt-4" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
+          Administrador</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> Editar fotos de <%= producto.titulo %> </li>
+      </ol>
+    </nav>
+
+  </div>
+<div class="container">
+    <div class="row mt-3 justify-content-center">
+        <h4 class="h4">Editar fotos publicación <%= producto.titulo %></h4>
+        <div class="col-12 col-lg-6 tex">
+            <form action="/administrador/<%= producto._id %>/editar-foto?_method=PUT" method="post"  enctype="multipart/form-data">
+
+         
+    
+       
+    
+            <div class="mb-3">
+              <label for="imagenes" class="form-label">Actualizar Imagenes</label>
+              <input class="form-control" name="imagenes" type="file" id="imagenes" multiple>
+            </div>
+
+
+            <div class="mb-3 px-3 row justify-content-around">
+
+              <% producto.imagenes.forEach(function(img, i){ %> 
+                <div class="col-6">
+                  <img class="img-thumbnail" src="<%= img.thumbnail %>" alt="">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="imagen-<%= i %> " name="deleteImagenes[]" value="<%= img.filename %>">
+                    <label class="form-check-label" for="imagen-<%= i %>">Eliminar</label>
+                  </div>
+                </div>
+                
+                  
+                <% }) %> 
+            </div>
+
+            <p  lass="lead">Tiene que haber minimo una imagen en la publicación antes de actualizar</p>
+            
+            <button type="submit" class="btn btn-primary px-5 py-3">Actualizar</button>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>
+ 
+</div>

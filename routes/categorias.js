@@ -136,7 +136,13 @@ router.get('/domino/:id/ver-producto', catchAsync( async (req, res) => {
   }))
     
 
-  
+    // MOSTRAR CADA PRODUCTO DOMINO
+router.get('/ABC/:id/ver-producto', catchAsync( async (req, res) => {
+  const idProducto = req.params.id;
+  const producto = await Producto.findById(idProducto);
+    res.render('productoIndividualABC',{producto});
+  }))
+    
   // MOSTRAR CADA PRODUCTO DUO
 router.get('/DUO/:id/ver-producto', catchAsync( async (req, res) => {
   const idProducto = req.params.id;
@@ -164,7 +170,7 @@ router.get('/pizarras/:id/ver-producto', catchAsync( async (req, res) => {
     res.render('productoIndividualPizarras',{producto});
   }))  
    // MOSTRAR CADA PRODUCTO pizarras
-router.get('/Sellos/:id/ver-producto', catchAsync( async (req, res) => {
+router.get('/sellos/:id/ver-producto', catchAsync( async (req, res) => {
   const idProducto = req.params.id;
   const producto = await Producto.findById(idProducto);
     res.render('productoIndividualSellos',{producto});

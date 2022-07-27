@@ -4,19 +4,24 @@
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
           Administrador</a></li>
-        <li class="breadcrumb-item active" aria-current="page"> Editar publicación </li>
+
+
+          <li class="breadcrumb-item"><a href="/administrador/<%= producto._id %>"> <%= producto.titulo %> </a></li>
+        <li class="breadcrumb-item active" aria-current="page"> Editar contenido de la publicación </li>
       </ol>
     </nav>
 
   </div>
 <div class="container">
     <div class="row mt-3">
-        <h4 class="h4">Crear publicación.</h4>
+        <h4 class="h4">Editar publicación <%= producto.titulo %> </h4>
         <div class="col-4"></div>
-        <div class="col-12 col-lg-4 tex">
-            <form action="/administrador/modo-laser/<%= producto._id %>?_method=PUT" method="post"  enctype="multipart/form-data">
+        <div class="col-12 col-lg-4 ">
+            <form action="/administrador/<%= producto._id %>?_method=PUT" method="post"  >
 
-              <label for="tipo">Tipo de publicación</label>
+              <label for="tipo">Tipo de publicación 
+                <p class="text-muted">Elegir el tipo</p>
+              </label>
               <select name="categoria" id="categoria" class="form-select mb-3" aria-label="Categoria producto">
                 <option selected>Abrir el menu para seleccionar la categoria</option>
                 <option value="Cajas">Cajas</option>
@@ -25,7 +30,6 @@
                 <option value="Mapas">Mapas</option>
                 <option value="ABC">ABC</option>
                 <option value="Memotest">Memotest</option>
-                
                 <option value="Dominos">Dominos</option>
                 <option value="DeYapa">DeYapa</option>
                 
@@ -39,21 +43,19 @@
                 <input value="<%= producto.titulo %>" placeholder="Ingresar el titulo del producto" type="text" name="titulo" class="form-control" id="titulo" required>
               </div>
     
-    
-              <div class=" mb-3">
+              
+              <div class=" mb-3 text-start">
                 <label for="caracteristicas" class="form-label">Características de la publicación</label>
 
-                <textarea  placeholder="Ingresar caracteristicas del producto" name="caracteristicas" id="caracteristicas" class="form-control" rows="3">
-                 <%= producto.caracteristicas %>
-                </textarea>
-    
+                <input name="caracteristicas" id="caracteristicas" class="form-control" value="<%= producto.caracteristicas %>" >
+                
               </div>
               <div class=" mb-3">
                 
               <label for="incluye" class="form-label">Incluye</label>
-                  <textarea class="form-control" name="incluye" id="incluye" rows="3"><%= producto.caracteristicas %></textarea>
-               
-      
+                  <textarea class="form-control" name="incluye" id="incluye" rows="3"><%= producto.incluye %></textarea>
+                
+                
                 
     
               </div>
@@ -61,7 +63,7 @@
             
               <div class="mb-3">
                 <label for="medidas" class="form-label">Medidas</label>
-                <textarea class="form-control"  name="medidas" id="medidas" rows="3"><%= producto.caracteristicas %></textarea>
+                <textarea class="form-control"  name="medidas" id="medidas" rows="3"><%= producto.medidas %></textarea>
               </div>
     
     
@@ -70,28 +72,11 @@
            
                 <input value=" <%= producto.precio %>" placeholder="Ingresar precio del producto" type="text" name="precio" class="form-control mx-4" id="precio" required aria-describedby="passwordHelpBlock">
                 </div>
-            <div class="mb-3">
-              <label for="imagenes" class="form-label">Actualizar Imagenes</label>
-              <input class="form-control" name="imagenes" type="file" id="imagenes" multiple>
-            </div>
+         
 
             
-            <div class="mb-3 px-3 row justify-content-around">
+        
 
-              <% producto.imagenes.forEach(function(img, i){ %> 
-                <div class="col-4">
-                  <img class="img-thumbnail" src="<%= img.thumbnail %>" alt="">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="imagen-<%= i %> " name="deleteImagenes[]" value="<%= img.filename %>">
-                    <label class="form-check-label" for="imagen-<%= i %> ">Eliminar</label>
-                  </div>
-                </div>
-                
-                  
-                <% }) %> 
-            </div>
-
-            <p  lass="lead">Tiene que haber minimo una imagen en la publicación antes de actualizar</p>
             
             <button type="submit" class="btn btn-primary px-5 py-3">Actualizar</button>
         </form>
