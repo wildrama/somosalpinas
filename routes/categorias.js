@@ -39,8 +39,8 @@ router.get('/cajas', catchAsync( async (req, res) => {
    // MOSTRAR TODOS LOS PRODUCTOS DUO
 router.get('/DUO', catchAsync( async (req, res) => {
   try {
-    const productos = await Producto.find({categoria:'DUO'});
-    res.render('duo',{productos});
+    const productos1 = await Producto.find({categoria:'DUO'});
+    res.render('duo',{productos1});
   } catch (error) {
     console.log(error)
   }
@@ -50,9 +50,9 @@ router.get('/DUO', catchAsync( async (req, res) => {
     // MOSTRAR TODOS LOS PRODUCTOS ABC
 router.get('/ABC', catchAsync( async (req, res) => {
   try {
-    const productos = await Producto.find({categoria:'ABC'});
-    console.log(productos)
-    res.render('abc',{productos});
+    const productos2 = await Producto.find({categoria:'ABC'});
+    console.log(productos2)
+    res.render('abc',{productos2});
   } catch (error) {
     console.log(error)
   }
@@ -62,8 +62,8 @@ router.get('/ABC', catchAsync( async (req, res) => {
     // MOSTRAR TODOS LOS PRODUCTOS Domino
     router.get('/domino', catchAsync( async (req, res) => {
       try {
-        const productos = await Producto.find({categoria:'Domino'});
-        res.render('domino',{productos});
+        const productos3 = await Producto.find({categoria:'Dominos'});
+        res.render('domino',{productos3});
       } catch (error) {
         console.log(error)
       }
@@ -73,8 +73,8 @@ router.get('/ABC', catchAsync( async (req, res) => {
       // MOSTRAR TODOS LOS PRODUCTOS pizarras
       router.get('/pizarras', catchAsync( async (req, res) => {
         try {
-          const productos = await Producto.find({categoria:'Pizarras'});
-          res.render('pizarras',{productos});
+          const productos4 = await Producto.find({categoria:'Pizarras'});
+          res.render('pizarras',{productos4});
         } catch (error) {
           console.log(error)
         }
@@ -90,8 +90,8 @@ router.get('/ABC', catchAsync( async (req, res) => {
         // MOSTRAR TODOS LOS PRODUCTOS Mapas
   router.get('/mapas', catchAsync( async (req, res) => {
     try {
-      const productos = await Producto.find({categoria:'Mapas'});
-      res.render('mapas',{productos});
+      const productos5 = await Producto.find({categoria:'Mapas'});
+      res.render('mapas',{productos5});
     } catch (error) {
       console.log(error)
     }
@@ -101,8 +101,8 @@ router.get('/ABC', catchAsync( async (req, res) => {
               // MOSTRAR TODOS LOS PRODUCTOS Memotest
   router.get('/memotest', catchAsync( async (req, res) => {
     try {
-      const productos = await Producto.find({categoria:'Memotest'});
-      res.render('memotest',{productos});
+      const productos6 = await Producto.find({categoria:'Memotest'});
+      res.render('memotest',{productos6});
     } catch (error) {
       console.log(error)
     }
@@ -113,8 +113,8 @@ router.get('/ABC', catchAsync( async (req, res) => {
    // MOSTRAR TODOS LOS PRODUCTOS Sellos
    router.get('/sellos', catchAsync( async (req, res) => {
      try {
-       const productos = await Producto.find({categoria:'Sellos'});
-       res.render('sellos',{productos});
+       const productos7 = await Producto.find({categoria:'Sellos'});
+       res.render('sellos',{productos7});
      } catch (error) {
        console.log(error)
      }
