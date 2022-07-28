@@ -16,27 +16,50 @@
                 <a class="btn btn-dark" href="/cerrar-sesion">Cerrar sesion e ir a la web</a>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col-12 col-lg-6 text-center">
+        <div class="row mt-3 d-none d-lg-block">
+            <div class="col-12 col-lg-6 text-center mb-3">
                 <h2>Crear nuevo producto</h2>
 
                 <a class="btn btn-success " href="/administrador/nuevo-producto">Nuevo Producto</a>
                 
             </div>
       
-            <div class="col-12 col-lg-6 text-center">
-                <h2> MODO LASER</h2>
+            <div class="col-12 col-lg-6 text-center mb-3">
+
+                <h2> MODO LÁSER</h2>
 
                 <a class="btn btn-secondary " href="/administrador/agregar-modolaser"> Agregar</a>                
                 <a class="btn btn-secondary " href="/administrador/mostrar-modolaser"> Ver</a>                
 
             </div>
         </div>
-        
-        <div class="row mt-3 text-center">         
-            
-                   <h2>Todas las categorías</h2>
-   
+        <div class="row mt-3 d-lg-none ">
+            <h2 class="mb-3">Crear nuevo producto</h2>
+            <div class="col-12  text-center mb-3">
+               
+
+                <a class="btn btn-success " href="/administrador/nuevo-producto">Nuevo Producto</a>
+                
+            </div>
+            <h2 class="mb-3" > MODO LÁSER</h2>
+            <div class="col-12  text-center mb-3">
+
+              
+
+                <a class="btn btn-secondary " href="/administrador/agregar-modolaser"> Agregar</a>                
+
+            </div>
+            <div class="col-12 text-center mb-3">
+                <a class="btn btn-secondary " href="/administrador/mostrar-modolaser"> Ver</a>                
+
+            </div>
+        </div>
+
+
+        <div class="row mt-3 text-center justify-content-center">         
+
+                   <h2 class="mb-3 py-2">Todas las categorías</h2>
+
                    <% for( let producto of productos ) { %>
                          <div class="col-12 col-md-6 col-lg-4 p-lg-3">
              
