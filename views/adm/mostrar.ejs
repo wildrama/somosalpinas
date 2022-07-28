@@ -34,14 +34,14 @@
             </div>
         </div>
         <div class="row mt-3 d-lg-none ">
-            <h2 class="mb-3">Crear nuevo producto</h2>
+            <h2 class="mb-2 text-center">Crear nuevo producto</h2>
             <div class="col-12  text-center mb-3">
                
 
                 <a class="btn btn-success " href="/administrador/nuevo-producto">Nuevo Producto</a>
                 
             </div>
-            <h2 class="mb-3" > MODO LÁSER</h2>
+            <h2 class="mb-2 text-center" > MODO LÁSER</h2>
             <div class="col-12  text-center mb-3">
 
               
@@ -63,7 +63,19 @@
                    <% for( let producto of productos ) { %>
                          <div class="col-12 col-md-6 col-lg-4 p-lg-3">
              
-                    <div class="card " style="width: 18rem;">
+                            <div class="card d-lg-none " style="width: 18rem;">
+                                <img src="<%= producto.imagenes[0].show %>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text text-muted text-end"><%= producto.categoria %> </p>
+        
+                                    <h5 class="card-title p-1"><%= producto.titulo %> </h5>
+        
+                                  <p class="card-text"><%= producto.caracteristicas %> </p>
+                                  <a href="/administrador/<%= producto._id %>" class="btn btn-primary">Ver</a>
+                                </div>
+                              </div>
+
+                    <div class="card d-none d-lg-block " style="width: 18rem;">
                         <img src="<%= producto.imagenes[0].show %>" class="card-img-top" alt="...">
                         <div class="card-body">
                             <p class="card-text text-muted text-end"><%= producto.categoria %> </p>
