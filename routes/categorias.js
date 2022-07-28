@@ -149,7 +149,7 @@ router.get('/ABC/:id/ver-producto', catchAsync( async (req, res) => {
 router.get('/DUO/:id/ver-producto', catchAsync( async (req, res) => {
   const idProducto = req.params.id;
   const producto = await Producto.findById(idProducto);
-    res.render('productoIndividualDUO',{producto});
+    res.render('productoIndividualDuo',{producto});
   }))
 
 
