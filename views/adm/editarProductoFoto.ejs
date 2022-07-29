@@ -30,10 +30,13 @@
               <% producto.imagenes.forEach(function(img, i){ %> 
                 <div class="col-6">
                   <img class="img-thumbnail" src="<%= img.thumbnail %>" alt="">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="imagen-<%= i %> " name="deleteImagenes[]" value="<%= img.filename %>">
-                    <label class="form-check-label" for="imagen-<%= i %> ">Eliminar</label>
-                  </div>
+                    <% if (producto.imagenes.length > 2 ) { %>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="imagen-<%= i %> " name="deleteImagenes[]" value="<%= img.filename %>">
+                        <label class="form-check-label" for="imagen-<%= i %> ">Eliminar</label>
+                      </div>
+                    <% } %>
+                 
                 </div>
                 
                   
