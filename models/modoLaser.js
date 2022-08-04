@@ -21,6 +21,10 @@ ImagenSchemaML.virtual('carrusel').get(function(){
 
   return this.url.replace('/upload', '/upload/c_scale,h_1080,w_1080');
 });
+ImagenSchemaML.virtual('ml').get(function(){
+
+  return this.url.replace('/upload', '/upload/h_400');
+});
 const modolaserSchema = new Schema({
     titulo : {
       type: String,

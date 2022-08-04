@@ -37,6 +37,8 @@ const sessionConfig = {
 // routes
 
 const admRoutes =require('./routes/administrador');
+const dinaRoutes =require('./routes/dinamica');
+
 const rutasUsuario = require('./routes/usuario');
 const rutasShopCart = require('./routes/shopCart');
 const categoriasRoutes = require('./routes/categorias');
@@ -109,6 +111,8 @@ app.use((req, res, next) => {
 
 
 // Routes for admin
+app.use('/administrador/adm-categorias',dinaRoutes);
+
 app.use('/administrador',admRoutes);
 app.use('/',rutasUsuario);
 app.use('/carrito',rutasShopCart);
