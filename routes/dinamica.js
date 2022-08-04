@@ -60,28 +60,62 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
 
   })) ;
 
-
-
-  router.post('/nueva-categoria/actualizar-portada', upload.single('imagen'), isLoggedIn,catchAsync(async (req, res) => {
-    const nuevaCatBody = {
-     nombre: req.body.nombre,
-     active: 'SI',
+  router.get('/:id/actualizar', isLoggedIn,catchAsync(async (req, res) => {
+    try{
+      const categoriaId = req.params.id;
+      const categoria = await Categoria.findById(categoriaId);
+  
+      res.render('adm/editarCategoria',{categoria});
+    }catch(error){
+      req.flash('error','No se puede encontrar la categoría');
+      res.redirect('/administrador')
     }
- 
-     const nuevaCategoria = new Categoria(nuevaCatBody);
-     nuevaCategoria.imagenPortada = {
+
+
+  })) ;
+
+  router.post('/:id/nueva-portada', upload.single('imagen'), isLoggedIn,catchAsync(async (req, res) => {
+  try{
+    const categoriaId = req.params.id;
+
+     const categoriaEncontrada = await Categoria.findById(categoriaId);
+     categoriaEncontrada.imagenPortada = {
        url:req.file.path,
        filename:req.file.filename
      }
-     await nuevaCategoria.save();
-     console.log(nuevaCategoria)
+     await categoriaEncontrada.save();
+     console.log(categoriaEncontrada)
  
-     req.flash('success', `Se creo la categoria ${nuevaCategoria.nombre} correctamente`);
+     req.flash('success', `Se actualizo la portada de ${categoriaEncontrada.nombre} correctamente`);
      res.redirect(`/administrador/adm-categorias`);
+  }catch(error){
+    req.flash('error', `No se pudo actualizar la portada correctamente`);
+
+    res.redirect(`/administrador/adm-categorias`);
+
+  }
+
  
    })) ;
 
+   router.post('/:id/nuevo-nombre',catchAsync(async (req, res) => {
+    try{
+      const categoriaId = req.params.id;
 
+   
+       const categoriaActualizada = await Categoria.findById(categoriaId);
+       categoriaActualizada.nombre= req.body.nombre;
+       await categoriaActualizada.save()
+       console.log(categoriaActualizada)
+
+       req.flash('success', `Se actualizo la categoría ${categoriaActualizada.nombre} correctamente`);
+       res.send(`200.OK`);
+    }catch(error){
+res.send('error')
+    }
+    
+ 
+   })) ;
 
 
 

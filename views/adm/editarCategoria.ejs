@@ -1,0 +1,61 @@
+<% layout('layouts/boilerplate')%>
+  <div class="container">
+    <nav class="indicadorDePagina px-4 d-flex mt-4" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg"
+                alt="atras"></span>
+                Administrador</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> Actualizar </li>
+      </ol>
+    </nav>
+
+  </div>
+  <div class="container">
+    <div class="row mt-3">
+      <h4 class="h4 text-center">Editar categoría <%= categoria.nombre %> </h4>
+      <p class="text-muted px-4">
+        Se recomienda pasar previamente las imagenes por <a href="https://tinypng.com/"> Tinypng </a> O <a href="https://bulkresizephotos.com/en"> BulkReizePhotos</a> o similares.
+        Los formatos aceptados son JPG, JPEG, PNG . HASTA 5MB POR ARCHIVO 
+      </p>
+      <div class="col-4"></div>
+      <div class="col-12 col-lg-4 ">
+        <form  action="/administrador/adm-categorias/<%= categoria._id %>/nueva-portada" method="post"  enctype="multipart/form-data" >
+
+            
+          
+
+          <div class="mb-3">
+            <label for="imagen" class="form-label">Subir Imagenes</label>
+            <input class="form-control" name="imagen" type="file" id="imagen" value="<%= categoria.imagenPortada.filename %>" >
+        </div>
+        <button type="submit" class="btn btn-primary px-5 py-3">Cambiar portada</button>
+    </form>
+
+
+    <div class="cambiarNombre">
+        <p id="idCategoriaDOM" class="d-none"><%= categoria._id %></p>
+        <label for="nombre" class="form-label">Nombre de la categoria</label>
+        <div class="input-group mb-3">
+          <input placeholder="Ingresar el nombre de la categoria" type="text" value="<%= categoria.nombre %>" name="nombre" class="form-control" id="nombre" required>
+        </div>
+        <button id='actNombreCategoria' class="btn btn-outline-success">
+            Actualizar Nombre
+        </button>
+    </div>
+        
+
+ 
+        
+         
+
+
+
+      
+
+       
+      </div>
+      <div class="col-4"></div>
+    </div>
+
+  </div>
+  <script src="/solicitudAxios.js"></script>

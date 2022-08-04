@@ -24,11 +24,11 @@
             <% for(let categoria of categorias) {%> 
                 <div class="col-lg-3 px-2">
                     <div class="card">
-                        <img class="img-fluid" src="<%= categoria.imagenPortada.url %>" alt="">
+                        <img class="img-fluid" src="<%= categoria.imagenPortada.show %>" alt="">
                         <p class="lead">
                             <%= categoria.nombre %> 
                         </p>
-                        <a href="/administrador/adm-categorias/<%=categoria._id  %>" class="text-center btn btn-outline-info">Editar categoría</a>
+                        <a href="/administrador/adm-categorias/<%=categoria._id %>/actualizar" class="text-center btn btn-outline-info">Editar categoría</a>
                     </div>
                 </div>
                 
