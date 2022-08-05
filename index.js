@@ -46,7 +46,7 @@ const categoriasRoutes = require('./routes/categorias');
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://localhost:27017/SomosAlpinasDataBase100',{
+  await mongoose.connect('mongodb://localhost:27017/SomosAlpinasDataBase10',{
     useNewUrlParser :true,
     useUnifiedTopology:true,
   });

@@ -105,11 +105,17 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
    
        const categoriaActualizada = await Categoria.findById(categoriaId);
        categoriaActualizada.nombre= req.body.nombre;
+       if(req.body.active == 'SI'){
+        categoriaActualizada.active = 'SI'
+       }
+       if(req.body.active =='NO'){
+        categoriaActualizada.active = 'NO'
+
+       }
        await categoriaActualizada.save()
        console.log(categoriaActualizada)
 
-       req.flash('success', `Se actualizo la categoría ${categoriaActualizada.nombre} correctamente`);
-       res.send(`200.OK`);
+       res.send(categoriaActualizada);
     }catch(error){
 res.send('error')
     }

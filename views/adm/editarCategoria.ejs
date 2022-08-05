@@ -11,26 +11,54 @@
 
   </div>
   <div class="container">
-    <div class="row mt-3">
+    <div class="row mt-3 justify-content-center">
       <h4 class="h4 text-center">Editar categoría <%= categoria.nombre %> </h4>
       <p class="text-muted px-4">
         Se recomienda pasar previamente las imagenes por <a href="https://tinypng.com/"> Tinypng </a> O <a href="https://bulkresizephotos.com/en"> BulkReizePhotos</a> o similares.
         Los formatos aceptados son JPG, JPEG, PNG . HASTA 5MB POR ARCHIVO 
       </p>
-      <div class="col-4"></div>
-      <div class="col-12 col-lg-4 ">
+      <div class="col-12 col-lg-8 ">
+        <div class="row">
+          <div class="col-12 col-lg-4 mb-3">
+            <form  action="/administrador/adm-categorias/<%= categoria._id %>/nueva-portada" method="post"  enctype="multipart/form-data" >
+    
+                
+              
+    
+              
+                <label for="imagen" class="form-label">Subir Imagenes</label>
+                <input class="form-control" name="imagen" type="file" id="imagen" value="<%= categoria.imagenPortada.filename %>" >
+           
+            <button type="submit" class="btn btn-primary px-5 py-3">Cambiar portada</button>
+        </form>
+      </div>
+      <div class="col-12 col-lg-4 mb-3">
         <form  action="/administrador/adm-categorias/<%= categoria._id %>/nueva-portada" method="post"  enctype="multipart/form-data" >
 
             
           
 
-          <div class="mb-3">
+          
             <label for="imagen" class="form-label">Subir Imagenes</label>
             <input class="form-control" name="imagen" type="file" id="imagen" value="<%= categoria.imagenPortada.filename %>" >
-        </div>
+       
         <button type="submit" class="btn btn-primary px-5 py-3">Cambiar portada</button>
     </form>
+  </div>
+        </div>
+        <div class="col-12 col-lg-4 mb-3">
+        <form  action="/administrador/adm-categorias/<%= categoria._id %>/nueva-portada" method="post"  enctype="multipart/form-data" >
 
+            
+          
+
+          
+            <label for="imagen" class="form-label">Subir Imagenes</label>
+            <input class="form-control" name="imagen" type="file" id="imagen" value="<%= categoria.imagenPortada.filename %>" >
+       
+        <button type="submit" class="btn btn-primary px-5 py-3">Cambiar portada</button>
+    </form>
+  </div>
 
     <div class="cambiarNombre">
         <p id="idCategoriaDOM" class="d-none"><%= categoria._id %></p>
@@ -44,7 +72,12 @@
     </div>
         
 
- 
+    <div class="switch-categoria">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="switchCategora" checked>
+        <label class="form-check-label" for="switchCategora">Mantener activa la categoria</label>
+      </div>
+    </div>
         
          
 
@@ -54,7 +87,6 @@
 
        
       </div>
-      <div class="col-4"></div>
     </div>
 
   </div>
