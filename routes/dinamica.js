@@ -64,7 +64,6 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
     try{
       const categoriaId = req.params.id;
       const categoria = await Categoria.findById(categoriaId);
-  
       res.render('adm/editarCategoria',{categoria});
     }catch(error){
       req.flash('error','No se puede encontrar la categoría');
@@ -123,7 +122,24 @@ res.send('error')
  
    })) ;
 
+   router.post('/:id/mostrar',catchAsync(async (req, res) => {
+    try{
+      const categoriaId = req.params.id;
 
+   
+       const categoriaActualizada = await Categoria.findById(categoriaId);
+       categoriaActualizada.active= req.body.active;
+
+       await categoriaActualizada.save()
+       console.log(categoriaActualizada)
+
+       res.send(categoriaActualizada);
+    }catch(error){
+res.send('error')
+    }
+    
+ 
+   })) ;
 
 
 

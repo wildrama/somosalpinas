@@ -24,7 +24,11 @@
       
           <label for="tipo">Tipo de publicación</label>
           <select name="categoria" id="categoria" class="form-select" aria-label="Categoria producto" >
-            <option value="ABC">ABC</option>
+            <% for(let categoria of categoriasAll) {%>
+              <option value="<%= categoria._id %>"><%= categoria.nombre %></option>
+
+            <% }%>  
+            <!-- <option value="ABC">ABC</option>
 
             <option selected value="Cajas">Cajas</option>
             <option value="DeYapa">DeYapa</option>
@@ -36,7 +40,7 @@
             <option value="Memotest">Memotest</option>
             <option value="Pizarra">Pizarra</option>
 
-            <option value="Sellos">Sellos</option>
+            <option value="Sellos">Sellos</option> -->
 
 
           </select>

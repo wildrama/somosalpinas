@@ -5,6 +5,9 @@
         <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg"
                 alt="atras"></span>
                 Administrador</a></li>
+                <li class="breadcrumb-item"><a href="/administrador/adm-categorias">
+                 
+                  Todas las categorías</a></li>
         <li class="breadcrumb-item active" aria-current="page"> Actualizar </li>
       </ol>
     </nav>
@@ -51,11 +54,20 @@
         </button>
     </div>
         
-
+    categoria: <%= categoria.active %> 
     <div class="switch-categoria">
       <div class="form-check form-switch">
+        <% if(categoria.active=='SI'){%> 
+        
         <input class="form-check-input" type="checkbox" id="switchCategora" checked>
-        <label class="form-check-label" for="switchCategora">Mantener activa la categoria</label>
+        <label   class="form-check-label labelswitchCategora" for="switchCategora">ACTIVA</label>
+       <% }%> 
+       <% if(categoria.active=='NO'){%> 
+        
+        <input class="form-check-input" type="checkbox" id="switchCategora" >
+        <label class="form-check-label labelswitchCategora" for="switchCategora">INACTIVA</label>
+       <% }%> 
+       
       </div>
     </div>
         

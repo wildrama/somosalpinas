@@ -3,6 +3,8 @@ const router = express.Router();
 const catchAsync =require('../utils/catchAsync');
 const {isLoggedIn} = require('../middleware');
 const Producto = require('../models/producto');
+const Categoria = require('../models/categoria');
+
 const ModoLaser = require('../models/modoLaser');
 const {storage} = require('../cloudinary/index');
 const {cloudinary} = require('../cloudinary/index');
@@ -29,9 +31,12 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
 
 // panel nuevo producto
   
-  router.get('/nuevo-producto',isLoggedIn,(req,res) =>{
-    res.render('adm/crearProducto');
-  });
+  router.get('/nuevo-producto',isLoggedIn,catchAsync(async(req,res) =>{
+    const categoriasAll = await Categoria.find({active:'SI'});
+
+
+    res.render('adm/crearProducto',{categoriasAll}  );
+  }));
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
   
   router.post('/',isLoggedIn,  upload.array('imagenes'),catchAsync( async (req,res)=>{
