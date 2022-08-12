@@ -24,7 +24,7 @@ const upload = multer({storage});
 // RENDER VER mostrar elementos Inicio de CRUD ADMIN
 router.get('/', isLoggedIn,catchAsync(async (req, res) => {
     const user = req.user
-    const productos = await Producto.find({})
+    const productos = await Producto.find({}).populate('categoriaId');
     res.render('adm/mostrar',{productos,user});
     
   })) ;
@@ -32,19 +32,18 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
 // panel nuevo producto
   
   router.get('/nuevo-producto',isLoggedIn,catchAsync(async(req,res) =>{
-    const categoriasAll = await Categoria.find({active:'SI'});
+    const categoriasAll = await Categoria.find({});
 
 
-    res.render('adm/crearProducto',{categoriasAll}  );
+    res.render('adm/crearProducto',{categoriasAll});
   }));
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
   
   router.post('/',isLoggedIn,  upload.array('imagenes'),catchAsync( async (req,res)=>{
 console.log(req.body)
-    const nuevoPRODUCTO = new Producto(req.body);
+const productoBody = req.body
+    const nuevoPRODUCTO = new Producto(productoBody);
     nuevoPRODUCTO.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
-console.log(nuevoPRODUCTO);
-console.log(req.files)
     await nuevoPRODUCTO.save();
     res.redirect(`/administrador/${nuevoPRODUCTO._id}`)
     } ));
@@ -135,7 +134,7 @@ const idML = req.params.id;
   router.get('/:id', isLoggedIn,catchAsync(async (req, res) =>{
     const {id} = req.params;
 
-   const producto = await Producto.findById(id)
+   const producto = await Producto.findById(id).populate('categoriaId');
    res.render('adm/productoIndividualADM',{producto});
   } ))
   
@@ -143,12 +142,13 @@ const idML = req.params.id;
       // poblate the products with the form and values
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
     const {id} = req.params;
+    const categoriasAll1 = await Categoria.find({});
     const producto = await Producto.findById(id);
     if (!producto) {
       req.flash('error', 'No se puede encontrar el producto');
       return res.redirect('/administrador');
   }
-    res.render('adm/editarProducto', {producto})
+    res.render('adm/editarProducto', {producto,categoriasAll1})
   }));
 
 

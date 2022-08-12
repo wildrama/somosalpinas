@@ -35,14 +35,13 @@
                        
                             <ul class="list-unstyled subItems px-3" aria-labelledby="navbarPRODUCTOS">
                                 <!-- <li id="firstLI"><a class="" href="/categorias/todos">Ver todos los productos</a></li> -->
-                                <li><a class="" href="/categorias/ABC">Abc</a></li>
-                                <li><a class="" href="/categorias/cajas">Cajas para imaginar y crear</a></li>
-                                <li><a class="" href="/categorias/DUO">Duo</a></li>
-                                <li><a class="" href="/categorias/domino">Domino</a></li>
-                                <li><a class="" href="/categorias/mapas">Mapas</a></li>
-                                <li><a class="" href="/categorias/memotest">Memotest</a></li>
-                                <li><a class="" href="/categorias/sellos">Sellos</a></li>
-                                <li><a class="" href="/categorias/pizarras">Pizarras</a></li>
+                        
+                                <% for(let categoria of categoriasAll) {%>
+                                  <option value="<%= categoria._id %>"><%= categoria.nombre %></option>
+                                  <li><a class="" href="/categorias/<%= categoria.nombre %>"><%= categoria.nombre %></a></li>
+                                  
+                                <% }%>  
+                       
                               
                               </ul>
 

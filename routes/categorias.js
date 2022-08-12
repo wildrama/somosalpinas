@@ -3,6 +3,7 @@ const router = express.Router();
 const Producto = require('../models/producto');
 const ModoLaser = require('../models/modoLaser')
 const catchAsync =require('../utils/catchAsync');
+const Categoria = require('../models/categoria');
 
 
 
@@ -20,9 +21,11 @@ router.get('/modo-laser', catchAsync( async (req, res) => {
     }));
 
 // MOSTRAR TODOS LOS PRODUCTOS CAJAS
-router.get('/cajas', catchAsync( async (req, res) => {
+router.get('/:cajas', catchAsync( async (req, res) => {
   try {
-    const productos9 = await Producto.find({categoria:'Cajas'});
+    const findBycAT = req.params.cajas
+
+    const productos9 = await Producto.find({categoriaId:findBycAT});
     console.log(productos9)
     res.render('cajas',{productos9});
   } catch (error) {
@@ -33,11 +36,25 @@ router.get('/cajas', catchAsync( async (req, res) => {
         
 
 
-   
+   // MOSTRAR TODOS LOS PRODUCTOS CAJAS
+router.get('/:categoriaNombre', catchAsync( async (req, res) => {
+  try {
+    const categoriaNombre = req.params.cajas
+    const categoriaEncontrada = await Categoria.findOne({nombre:categoriaNombre});
+    const productos9 = await Producto.find({categoriaId:categoriaEncontrada._id});
+    console.log(productos9)
+    res.render('categoriaDinamica',{categoriaEncontrada,productos9});
+  } catch (error) {
+    console.log(error)
+  }
+    
+    }))
+        
+
 
 
    // MOSTRAR TODOS LOS PRODUCTOS DUO
-router.get('/DUO', catchAsync( async (req, res) => {
+router.get('/duo', catchAsync( async (req, res) => {
   try {
     const productos1 = await Producto.find({categoria:'DUO'});
     res.render('duo',{productos1});
@@ -48,7 +65,7 @@ router.get('/DUO', catchAsync( async (req, res) => {
     }))
  
     // MOSTRAR TODOS LOS PRODUCTOS ABC
-router.get('/ABC', catchAsync( async (req, res) => {
+router.get('/abc', catchAsync( async (req, res) => {
   try {
     const productos2 = await Producto.find({categoria:'ABC'});
     console.log(productos2)

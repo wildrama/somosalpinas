@@ -23,7 +23,7 @@
 
       
           <label for="tipo">Tipo de publicación</label>
-          <select name="categoria" id="categoria" class="form-select" aria-label="Categoria producto" >
+          <select name="categoriaId" id="categoria" class="form-select" aria-label="Categoria producto" >
             <% for(let categoria of categoriasAll) {%>
               <option value="<%= categoria._id %>"><%= categoria.nombre %></option>
 

@@ -133,10 +133,10 @@ app.use('/categorias',categoriasRoutes);
 
 // RENDER HOME
 app.get('/', (req, res) => {
-  req.session.viewCount += 1;
   console.log(req.session)
+  const navCatsIndex = await Categoria.find({active:'SI'});
 
-  res.render('inicio',{viewCount : req.session.viewCount});
+  res.render('inicio',{navCatsIndex});
 })
 
 

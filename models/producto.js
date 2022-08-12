@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const Categoria = require('./categoria');
 
 const ImagenSchema = new Schema({
   
@@ -29,12 +30,13 @@ const productoSchema = new Schema({
     
     categoria: {
       type: String,
-      enum: ['Cajas','Pizarra', 'DUO','Mapas','ABC','Memotest','Sellos','Dominos','DeYapa'],
-      required : true
+      enum: ['Cajas','Pizarra', 'DUO','Mapas','ABC','Memotest','Sellos','Dominos','DeYapa']
     },
     categoriaId:{
       type: Schema.Types.ObjectId,
-      ref:'Categoria'
+      ref:'Categoria',
+      required : true
+
     },
     precio :{
       type:String,

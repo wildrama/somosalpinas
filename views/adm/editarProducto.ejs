@@ -23,14 +23,10 @@
                 <p class="text-muted">Elegir el tipo nuevamente, sino quedara predeterminado Cajas</p>
               </label>
               <select name="categoria" id="categoria" class="form-select mb-3" aria-label="Categoria producto">
-                <option selected value="Cajas">Cajas</option>
-                <option value="Pizarra">Pizarra</option>
-                <option value="DUO">DUO</option>
-                <option value="Mapas">Mapas</option>
-                <option value="ABC">ABC</option>
-                <option value="Memotest">Memotest</option>
-                <option value="Dominos">Dominos</option>
-                <option value="DeYapa">DeYapa</option>
+                <% for(let categoria of categoriasAll1) {%>
+                  <option value="<%= categoria._id %>"><%= categoria.nombre %></option>
+    
+                <% }%> 
                 
               </select>
     
