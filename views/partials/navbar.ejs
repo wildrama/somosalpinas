@@ -36,8 +36,7 @@
                             <ul class="list-unstyled subItems px-3" aria-labelledby="navbarPRODUCTOS">
                                 <!-- <li id="firstLI"><a class="" href="/categorias/todos">Ver todos los productos</a></li> -->
                         
-                                <% for(let categoria of categoriasAll) {%>
-                                  <option value="<%= categoria._id %>"><%= categoria.nombre %></option>
+                                <% for(let categoria of categorias ) {%>
                                   <li><a class="" href="/categorias/<%= categoria.nombre %>"><%= categoria.nombre %></a></li>
                                   
                                 <% }%>  
@@ -94,16 +93,11 @@
                     <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
                       <!-- <li><a class="dropdown-item" href="/categorias/todos">Todos los productos</a></li> -->
 
-                      <li><a class="dropdown-item" href="/categorias/ABC">Abc</a></li>
-                      <li><a class="dropdown-item" href="/categorias/cajas">Cajas para imaginar y crear</a></li>
-                      <li><a class="dropdown-item" href="/categorias/DUO">Duo</a></li>
-                      <li><a class="dropdown-item" href="/categorias/domino">Dominó</a></li>
-                      <li><a class="dropdown-item" href="/categorias/mapas">Mapas</a></li>
-                      <li><a class="dropdown-item" href="/categorias/memotest">Memotest</a></li>
+                      <% for(let categoria of categorias ) {%>
+                        <li><a class="dropdown-item" href="/categorias/<%= categoria.nombre %>"><%= categoria.nombre %></a></li>
 
-                      <li><a class="dropdown-item" href="/categorias/sellos">Sellos</a></li>
+                      <% }%>  
 
-                      <li><a class="dropdown-item" href="/categorias/pizarras">Pizarras</a></li>
                   
                       
 

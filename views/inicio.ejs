@@ -1,7 +1,6 @@
 <% layout('layouts/boilerplate')%>
 
 <main>
-    <div class="h1 d-none">viewcout <%= viewCount %> </div>
     <section id="introAlpinas" class="py-3 d-lg-none">
         <div class="pall container px-4 py-2 mt-2  ">
             
@@ -93,7 +92,15 @@
 <section id="categorias">
     <div class="container">
         <div class="row">
-            <div style="overflow: hidden;" class="col-12 col-md-6">
+            <% for(let categoria of categorias ) {%>
+                <div style="overflow: hidden;" class="col-12 col-md-6">
+                    <a href="/categorias/<%= categoria.nombre %>" class="categoriaCard">
+                      <img class="img-fluid" src="<%= categoria.imagenPortada.url %>" alt="">
+                        <h3 class="px-4 pb-2 text-start"><%= categoria.nombre %></h3>
+                    </a>
+                </div>
+              <% }%>  
+            <!-- <div style="overflow: hidden;" class="col-12 col-md-6">
                 <a href="/categorias/cajas" class="categoriaCard">
                   <img class="img-fluid" src="/categorias/cajaCategoria.jpg" alt="">
                     <h3 class="px-4 pb-2 text-start">CAJAS PARA IMAGINAR Y CREAR</h3>
@@ -140,7 +147,7 @@
                   <img class="img-fluid" src="/categorias/dominoCategoria.jpg" alt="">
                     <h3 class="px-4 pb-2 text-start">DOMINÓ</h3>
                 </a>
-            </div>
+            </div> -->
             <div style="overflow: hidden;" class="col-12 col-md-12">
                 <a href="/categorias/modo-laser" class="categoriaCard">
                   <img class="img-fluid d-none d-lg-block " src="/categorias/modoLaserCategoriaWeb.jpg" alt="">

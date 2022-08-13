@@ -14,6 +14,10 @@ const multer = require('multer');
 
 
 const mongoose = require('mongoose');
+
+
+const Categoria = require('./models/categoria.js');
+
 // require mongoose models
 const Usuario = require('./models/usuario.js');
 // utils
@@ -101,8 +105,9 @@ passport.deserializeUser(Usuario.deserializeUser());
 
 
 
-app.use((req, res, next) => {
-  console.log(req.session)
+app.use(async(req, res, next) => {
+  res.locals.categorias = await Categoria.find({active:'SI'});
+
   res.locals.currentUser = req.user;
   res.locals.success = req.flash('success');
   res.locals.error = req.flash('error');
@@ -132,11 +137,10 @@ app.use('/categorias',categoriasRoutes);
 
 
 // RENDER HOME
-app.get('/', (req, res) => {
-  console.log(req.session)
-  const navCatsIndex = await Categoria.find({active:'SI'});
+app.get('/',(req, res) => {
 
-  res.render('inicio',{navCatsIndex});
+
+  res.render('inicio');
 })
 
 

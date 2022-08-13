@@ -1,0 +1,132 @@
+<% layout('layouts/boilerplate')%>
+
+<main>
+    <div class="container">
+        <nav class="indicadorDePagina px-lg-4 d-flex mt-4" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
+                Inicio</a></li>
+                <li class="breadcrumb-item"><a href="/categorias/<%= categoriaEncontrada.nombre %>">
+                   <%= categoriaEncontrada.nombre %> </a></li>
+            <li class="breadcrumb-item active" aria-current="page"> <b> <%= productoEncontrado.titulo %> </b> </li>
+          </ol>
+        </nav>
+      
+      </div>
+  
+
+        <div class="container mt-4 p-md-5 text-sm-start">
+            <div class="row justify-content-center productoIndividualCard text-center  py-2">
+                <div class="col-lg-6">
+                  
+                      <div class="carus p-1 mb-5">
+                           <!-- Carousel wrapper -->
+   <div id="carouselExampleIndicators" class="carousel carousel-dark slide carousel-fade"
+   data-mdb-ride="carousel">
+   <!-- Slides -->
+   <div  class="carousel-inner mb-5">
+     <% productoEncontrado.imagenes.forEach( ( imagen , i )=> { %>
+        
+       <div class="carousel-item <%= i === 0? 'active':''%>">
+         <img style="border-radius:23px ;" src="<%= imagen.show %>" class="d-block w-100" alt="..." />
+       </div>
+       <% }) %>
+
+
+   </div>
+   <!-- Slides -->
+
+   <!-- Controls -->
+   <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators"
+     data-mdb-slide="prev">
+     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+     <span class="visually-hidden">Previo</span>
+   </button>
+   <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators"
+     data-mdb-slide="next">
+     <span class="carousel-control-next-icon" aria-hidden="true"></span>
+     <span class="visually-hidden">Siguiente</span> 
+   </button>
+   <!-- Controls -->
+
+   <!-- Thumbnails -->
+   <div class="carousel-indicators imagenProducto" style="margin-bottom: -20px;">
+     <% productoEncontrado.imagenes.forEach( ( imagen , i )=> { %>
+
+       <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
+         class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide <%= i %> "
+         style="width: 100px;">
+         <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />
+       </button>
+       <% }) %>
+
+   </div>
+   <!-- Thumbnails -->
+ </div>
+ <!-- Carousel wrapper -->
+                      </div>
+
+                     
+                    </div>
+             
+                <div class="col-lg-6">
+                    <p style="font-weight: 600; color: #575757;" class="titulo text-start">
+                        <%= productoEncontrado.titulo %> 
+    
+                      </p>
+                      <% if(productoEncontrado.precio ){ %> 
+                      <p class="precio text-start">
+                        <span class="d-inline">$</span>  <%= productoEncontrado.precio %> 
+                      </p>
+                      <% } %> 
+                      <% if(productoEncontrado.caracteristicas ){ %> 
+                      <p class="text-start" style="font-weight: 600; color: #636363;" >CARACTERÍSTICAS:</p>
+                      <p class="caracteristicas text-start">
+                        <%= productoEncontrado.caracteristicas %>                  
+                             </p> 
+                             <% } %> 
+                             <% if(productoEncontrado.incluye ){ %> 
+                      <p class="text-start" style="font-weight: 600; color: #636363;" >INCLUYE:</p>
+                      <p class="incluye text-start">
+                        <%= productoEncontrado.incluye %>                       
+                        </p>
+                        <% } %>
+                        <% if(productoEncontrado.medidas ){ %>  
+                      <p class="text-start" style="font-weight: 600; color: #636363;" >MEDIDAS:</p>
+                      <p class="medidas text-start">
+                        <%= productoEncontrado.medidas %>                       
+                        </p>
+                        <% } %> 
+              
+                  <!-- <a href="#" class="text-center agregarProducto mt-4">
+                      Agregar <img class="px-3" src="/shopCart.png" alt="">
+                  </a> -->
+                  <div class="container text-center mt-3">
+                    <div class="row px-lg-5 justify-content-end">
+                        <div class="col-12 col-lg-12  mb-5 mt-3 mt-lg-0 ">
+                          <a id="modoLaserWP" class="" href="https://wa.link/uu6qpw">
+                            ENVIA TU MENSAJE<img class="img-fluid px-2" src="/wpblack.png" alt="">
+                          </a>
+                        </div>
+                       
+                    </div>
+                 
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          
+
+
+
+        
+     
+         
+
+
+
+
+
+</main>

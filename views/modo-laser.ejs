@@ -105,7 +105,12 @@
                        <img class="img-fluid" src="/IgBlack.png" alt=""> @alpinas.modolaser
                      </a>
                     </div>
-   </section>
+                    </div>
+                  </div>
+                </div>
+           
+
+                  </section>
 
    <section id="galeriaModoLaser">
 
@@ -113,21 +118,41 @@
             <p class="mx-3 ">
                <i>Fotos de productos realizados</i> 
             </p>
-            <div id="modoLaserRow" class="row justify-content-between  px-3">
+            <div id="modoLaserRow" class="row  px-3">
     
            
 
                 <% for( let modoLaserProd of modoLaserProductos ) { %>
                     
           
-                    <div class="col-12  ">
-                        <div class="row modoLaserCard" ">
+                    <div class="col-12  p-1">
+                      
                             
                             <h4  class="text-start capitalize-first">
                                 <%= modoLaserProd.titulo.toUpperCase() %> 
                             </h4>
-                            
-                           <div class="col-6 ">
+
+                              <div class="container">
+                                <div class="row text-center">
+                                  <% modoLaserProd.imagenes.forEach( imagen => { %>
+                                       
+                                    <div class="col-3 mb-3">
+                                      <img style="border-radius:23px ;" src="<%= imagen.url %>" class="img-fluid" alt="" >
+                                    </div>
+                                     
+                                    <% }) %>
+      
+                                </div>
+                              </div>
+                     
+                      
+
+
+                          
+                           
+                                            
+                    </div>
+                          <div class="col-12 d-lg-none">
                             
                             <div id="carouselExampleIndicators123" class="carousel slide" data-bs-ride="carousel">
                            
@@ -160,11 +185,7 @@
 
                            </div>  
    
-                           
-                                            
-                          </div>
-                       
-                    </div>
+                   
                 <% } %>
               
             

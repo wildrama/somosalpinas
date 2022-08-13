@@ -20,38 +20,39 @@ router.get('/modo-laser', catchAsync( async (req, res) => {
 
     }));
 
-// MOSTRAR TODOS LOS PRODUCTOS CAJAS
-router.get('/:cajas', catchAsync( async (req, res) => {
-  try {
-    const findBycAT = req.params.cajas
 
-    const productos9 = await Producto.find({categoriaId:findBycAT});
-    console.log(productos9)
-    res.render('cajas',{productos9});
-  } catch (error) {
-    console.log(error)
-  }
-    
-    }))
-        
 
 
    // MOSTRAR TODOS LOS PRODUCTOS CAJAS
 router.get('/:categoriaNombre', catchAsync( async (req, res) => {
   try {
-    const categoriaNombre = req.params.cajas
+    const categoriaNombre = req.params.categoriaNombre;
+    console.log('la categoria es:')
+    console.log(categoriaNombre)
     const categoriaEncontrada = await Categoria.findOne({nombre:categoriaNombre});
-    const productos9 = await Producto.find({categoriaId:categoriaEncontrada._id});
-    console.log(productos9)
-    res.render('categoriaDinamica',{categoriaEncontrada,productos9});
+    const productosEncontrados = await Producto.find({categoriaId: categoriaEncontrada._id})
+    res.render('categoriaDinamica',{categoriaEncontrada,productosEncontrados});
   } catch (error) {
     console.log(error)
   }
-    
-    }))
+   
+    }));
         
 
+router.get('/:categoriaNombre/ver-producto/:id',catchAsync(async(req,res)=>{
+  try {
+    const categoriaNombre = req.params.categoriaNombre;
+    const idProd = req.params.id;
+console.log(categoriaNombre)
+console.log(idProd)
 
+    const categoriaEncontrada = await Categoria.findOne({nombre:categoriaNombre});
+    const productoEncontrado = await Producto.findById(idProd).populate('categoriaId');
+    res.render('productoDinamico',{categoriaEncontrada,productoEncontrado});
+  } catch (error) {
+    console.log(error)
+  }
+}));
 
    // MOSTRAR TODOS LOS PRODUCTOS DUO
 router.get('/duo', catchAsync( async (req, res) => {
