@@ -23,7 +23,6 @@
                 <p class="text-muted">Elegir el tipo nuevamente, sino quedara predeterminado Cajas</p>
               </label>
               <select name="categoria" id="categoria" class="form-select mb-3" aria-label="Categoria producto">
-                <option value="<%= producto.categoriaId._id %>"><%= producto.categoriaId.nombre %></option>
                 <% for(let categoria of categoriasAll1) {%>
                   <option value="<%= categoria._id %>"><%= categoria.nombre %></option>
     
