@@ -142,7 +142,7 @@ const idML = req.params.id;
       // poblate the products with the form and values
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
     const {id} = req.params;
-    const categoriasAll1 = await Categoria.find({});
+    const categoriasAll1 = await Categoria.find({}).sort({nombre:1});
     const producto = await Producto.findById(id).pupulate('categoriaId');
     if (!producto) {
       req.flash('error', 'No se puede encontrar el producto');
