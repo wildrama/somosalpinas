@@ -24,6 +24,7 @@
       
           <label for="tipo">Tipo de publicación</label>
           <select name="categoriaId" id="categoria" class="form-select" aria-label="Categoria producto" >
+            <option> Abri para seleccionar la categoria</option>
             <% for(let categoria of categoriasAll) {%>
               <option value="<%= categoria._id %>"><%= categoria.nombre %></option>
               
