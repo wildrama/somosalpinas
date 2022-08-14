@@ -72,7 +72,35 @@
 
                    <h2 class="mb-3 py-2">Todas las categorías</h2>
 
-             
+                   <% for( let producto of productos ) { %>
+                         <div class="col-12 col-md-6 col-lg-4 p-lg-3">
+                            
+                            <div class="card d-lg-none " >
+                                <img src="<%= producto.imagenes[0].show %>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p class="card-text text-muted text-end"><%= producto.categoriaId.nombre %> </p>
+        
+                                    <h5 class="card-title p-1"><%= producto.titulo %> </h5>
+        
+                                  <p class="card-text"><%= producto.caracteristicas %> </p>
+                                  <a href="/administrador/<%= producto._id %>" class="btn btn-primary">Ver</a>
+                                </div>
+                              </div>
+
+                    <div class="card d-none d-lg-block " style="width: 18rem;">
+                        <img src="<%= producto.imagenes[0].show %>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-muted text-end"><%= producto.categoriaId.nombre %> </p>
+
+                            <h5 class="card-title p-1"><%= producto.titulo %> </h5>
+
+                          <p class="card-text"><%= producto.caracteristicas %> </p>
+                          <a href="/administrador/<%= producto._id %>" class="btn btn-primary">Ver</a>
+                        </div>
+                      </div>
+            
+            </div>
+            <% } %>
 
         </div>
     </div>

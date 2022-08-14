@@ -92,7 +92,14 @@
 <section id="categorias">
     <div class="container">
         <div class="row">
- 
+            <% for(let categoria of categorias ) {%>
+                <div style="overflow: hidden;" class="col-12 col-md-6">
+                    <a href="/categorias/<%= categoria.nombre %>" class="categoriaCard">
+                      <img class="img-fluid" src="<%= categoria.imagenPortada.url %>" alt="">
+                        <h3 class="px-4 pb-2 text-start"><%= categoria.nombre.toUpperCase() %></h3>
+                    </a>
+                </div>
+              <% }%>  
             <!-- <div style="overflow: hidden;" class="col-12 col-md-6">
                 <a href="/categorias/cajas" class="categoriaCard">
                   <img class="img-fluid" src="/categorias/cajaCategoria.jpg" alt="">

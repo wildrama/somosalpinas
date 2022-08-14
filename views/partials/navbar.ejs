@@ -36,9 +36,11 @@
                             <ul class="list-unstyled subItems px-3" aria-labelledby="navbarPRODUCTOS">
                                 <!-- <li id="firstLI"><a class="" href="/categorias/todos">Ver todos los productos</a></li> -->
                         
-                        
-                            
-                                
+                                <% for(let categoria of categorias ) {%>
+                                  <li><a class="" href="/categorias/<%= categoria.nombre %>"><%= categoria.nombre %></a></li>
+                                  
+                                <% }%>  
+                       
                               
                               </ul>
 
@@ -91,7 +93,13 @@
                     <ul  class="dropdown-menu" aria-labelledby="dropdownMenuButton1" >
                       <!-- <li><a class="dropdown-item" href="/categorias/todos">Todos los productos</a></li> -->
 
-                 
+                      <% for(let categoria of categorias ) {%>
+                        <li><a class="dropdown-item" href="/categorias/<%= categoria.nombre %>"><%= categoria.nombre %></a></li>
+
+                      <% }%>  
+
+                  
+                      
 
                       <li><hr class="dropdown-divider"></li>
                       <li><a class="dropdown-item" href="/categorias/modo-laser">Modo Láser</a></li>

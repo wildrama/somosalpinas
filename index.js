@@ -106,8 +106,8 @@ passport.deserializeUser(Usuario.deserializeUser());
 
 
 app.use(async(req, res, next) => {
-
-  // res.locals.categorias = await Categoria.find({active:'SI'}).sort({ nombre: 1 });
+  
+  res.locals.categorias = await Categoria.find({active:'SI'}).sort({ nombre: 1 });
 
   res.locals.currentUser = req.user;
   res.locals.success = req.flash('success');
