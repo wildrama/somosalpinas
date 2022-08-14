@@ -32,7 +32,7 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
 // panel nuevo producto
   
   router.get('/nuevo-producto',isLoggedIn,catchAsync(async(req,res) =>{
-    const categoriasAll = await Categoria.find({});
+    const categoriasAll = await Categoria.find({}).sort({nombre: 1});
 
 
     res.render('adm/crearProducto',{categoriasAll});
