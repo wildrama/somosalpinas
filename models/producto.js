@@ -36,7 +36,6 @@ const productoSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref:'Categoria',
       required : true
-
     },
     precio :{
       type:String,

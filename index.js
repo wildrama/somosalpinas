@@ -50,7 +50,7 @@ const categoriasRoutes = require('./routes/categorias');
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://localhost:27017/SomosAlpinasDataBase10',{
+  await mongoose.connect('mongodb://localhost:27017/SomosAlpinasDataBase30',{
     useNewUrlParser :true,
     useUnifiedTopology:true,
   });
@@ -106,7 +106,7 @@ passport.deserializeUser(Usuario.deserializeUser());
 
 
 app.use(async(req, res, next) => {
-  res.locals.categorias = await Categoria.find({active:'SI'});
+  res.locals.categorias = await Categoria.find({active:'SI'}).sort({ nombre: 1 });
 
   res.locals.currentUser = req.user;
   res.locals.success = req.flash('success');
