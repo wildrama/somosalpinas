@@ -143,7 +143,7 @@ const idML = req.params.id;
   router.get('/:id/editar',isLoggedIn,catchAsync( async (req,res) =>{
     const {id} = req.params;
     const categoriasAll1 = await Categoria.find({});
-    const producto = await Producto.findById(id);
+    const producto = await Producto.findById(id).pupulate('categoriaId');
     if (!producto) {
       req.flash('error', 'No se puede encontrar el producto');
       return res.redirect('/administrador');
