@@ -11,10 +11,10 @@ ImagenSchemaCat.virtual('thumbnail').get(function() {
   return this.url.replace('/upload', '/upload/w_200');
 });
 ImagenSchemaCat.virtual('show').get(function() {
-  return this.url.replace('/upload', '/upload/c_scale,w_800');
+  return this.url.replace('/upload', '/upload/c_scale,w_800,h_600');
 });
 ImagenSchemaCat.virtual('crop').get(function(){
-
+s
   return this.url.replace('/upload', '/upload/c_scale,h_400,w_600');
 });
 ImagenSchemaCat.virtual('carrusel').get(function(){
