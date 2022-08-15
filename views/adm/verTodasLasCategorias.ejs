@@ -18,11 +18,11 @@
     <div class="container">
         <h2>Listado de categorías</h2>
   
-        <a href="/administrador/adm-categorias/nueva-categoria" class="btn btn-primary m-1">Crear categoria</a>
-        <div class="row px-lg-3">
+        <a href="/administrador/adm-categorias/nueva-categoria" class="btn btn-primary mx-3 px-3  m-1">Crear categoria</a>
+        <div class="row mt-2 px-lg-3">
 
             <% for(let categoria of categorias) {%> 
-                <div class="col-lg-3 px-2 mb-3">
+                <div class="col-lg-3 px-2 mb-4">
                     <div class="card">
                         <img class="img-fluid" src="<%= categoria.imagenPortada.show %>" alt="">
                         <p class="lead">

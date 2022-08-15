@@ -67,20 +67,33 @@
   </div>
   <!-- Carousel wrapper -->
               </div>
-              <p class="categoria">
-                <%= producto.categoriaId.nombre %> 
+              <p style="font-weight: 600; color: #575757;" class="titulo text-start">
+                <%= productoEncontrado.titulo %> 
+
               </p>
-              <p class="titulo lead">
-                <%= producto.titulo %>
-                
+              <% if(productoEncontrado.precio ){ %> 
+              <p class="precio text-start">
+                <span class="d-inline">$</span>  <%= productoEncontrado.precio %> 
               </p>
-              <p class="precio">
-              $<%= producto.precio %>
-              </p>
-              <p>CARACTERISTICAS:</p>
-              <p class="caracteristicas">
-                <%= producto.caracteristicas %>
-              </p>
+              <% } %> 
+              <% if(productoEncontrado.caracteristicas ){ %> 
+              <p class="text-start" style="font-weight: 600; color: #636363;" >CARACTERÍSTICAS:</p>
+              <p class="caracteristicas text-start">
+                <%= productoEncontrado.caracteristicas %>                  
+                     </p> 
+                     <% } %> 
+                     <% if(productoEncontrado.incluye ){ %> 
+              <p class="text-start" style="font-weight: 600; color: #636363;" >INCLUYE:</p>
+              <p class="incluye text-start">
+                <%= productoEncontrado.incluye %>                       
+                </p>
+                <% } %>
+                <% if(productoEncontrado.medidas ){ %>  
+              <p class="text-start" style="font-weight: 600; color: #636363;" >MEDIDAS:</p>
+              <p class="medidas text-start">
+                <%= productoEncontrado.medidas %>                       
+                </p>
+                <% } %> 
            
 
               <div class="d-flex   justify-content-around py-4">
