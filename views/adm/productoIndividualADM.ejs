@@ -68,28 +68,32 @@
   <!-- Carousel wrapper -->
               </div>
               <p style="font-weight: 600; color: #575757;" class="titulo text-start">
-                <%= productoEncontrado.titulo %> 
+                <%= producto.titulo %> 
 
               </p>
-           
+              <% if(producto.precio ){ %> 
               <p class="precio text-start">
-                <span class="d-inline">$</span>  <%= productoEncontrado.precio %> 
+                <span class="d-inline">$</span>  <%= producto.precio %> 
               </p>
-             
+              <% } %> 
+              <% if(producto.caracteristicas ){ %> 
               <p class="text-start" style="font-weight: 600; color: #636363;" >CARACTERÍSTICAS:</p>
               <p class="caracteristicas text-start">
-                <%= productoEncontrado.caracteristicas %>                  
+                <%= producto.caracteristicas %>                  
                      </p> 
-                 
+                     <% } %> 
+                     <% if(producto.incluye ){ %> 
               <p class="text-start" style="font-weight: 600; color: #636363;" >INCLUYE:</p>
               <p class="incluye text-start">
-                <%= productoEncontrado.incluye %>                       
+                <%= producto.incluye %>                       
                 </p>
-           
+                <% } %>
+                <% if(producto.medidas ){ %>  
               <p class="text-start" style="font-weight: 600; color: #636363;" >MEDIDAS:</p>
               <p class="medidas text-start">
-                <%= productoEncontrado.medidas %>                       
+                <%= producto.medidas %>                       
                 </p>
+                <% } %> 
            
 
               <div class="d-flex   justify-content-around py-4">
