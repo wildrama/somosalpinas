@@ -23,38 +23,51 @@
 
               <div class="carutrap p-3 mb-5">
     <!-- Carousel wrapper -->
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide carousel-fade"
+    data-mdb-ride="carousel">
+    <!-- Slides -->
+    <div class="carousel-inner mb-5">
+      <% producto.imagenes.forEach( ( imagen , i )=> { %>
 
+        <div class="carousel-item <%= i === 0? 'active':''%>">
+          <img src="<%= imagen.show %>" class="d-block w-100" alt="..." />
+        </div>
+        <% }) %>
+
+
+    </div>
+    <!-- Slides -->
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators"
+      data-mdb-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previo</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators"
+      data-mdb-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
+    </button>
+    <!-- Controls -->
+
+    <!-- Thumbnails -->
+    <div class="carousel-indicators imagenProducto" style="margin-bottom: -20px;">
+      <% producto.imagenes.forEach( ( imagen , i )=> { %>
+
+        <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
+          class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide <%= i %> "
+          style="width: 100px;">
+          <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />
+        </button>
+        <% }) %>
+
+    </div>
+    <!-- Thumbnails -->
+  </div>
   <!-- Carousel wrapper -->
               </div>
-              <p style="font-weight: 600; color: #575757;" class="titulo text-start">
-                <%= productoEncontrado.titulo %> 
-
-              </p>
-              <% if(productoEncontrado.precio ){ %> 
-              <p class="precio text-start">
-                <span class="d-inline">$</span>  <%= productoEncontrado.precio %> 
-              </p>
-              <% } %> 
-              <% if(productoEncontrado.caracteristicas ){ %> 
-              <p class="text-start" style="font-weight: 600; color: #636363;" >CARACTERÍSTICAS:</p>
-              <p class="caracteristicas text-start">
-                <%= productoEncontrado.caracteristicas %>                  
-                     </p> 
-                     <% } %> 
-                     <% if(productoEncontrado.incluye ){ %> 
-              <p class="text-start" style="font-weight: 600; color: #636363;" >INCLUYE:</p>
-              <p class="incluye text-start">
-                <%= productoEncontrado.incluye %>                       
-                </p>
-                <% } %>
-                <% if(productoEncontrado.medidas ){ %>  
-              <p class="text-start" style="font-weight: 600; color: #636363;" >MEDIDAS:</p>
-              <p class="medidas text-start">
-                <%= productoEncontrado.medidas %>                       
-                </p>
-                <% } %> 
-           
-
+    
               <div class="d-flex   justify-content-around py-4">
                   
            
