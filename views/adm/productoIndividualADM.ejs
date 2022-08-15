@@ -23,39 +23,7 @@
 
               <div class="carutrap p-3 mb-5">
     <!-- Carousel wrapper -->
-    <div id="carouselExampleIndicators" class="carousel carousel-dark slide carousel-fade"
-    data-mdb-ride="carousel">
-    <!-- Slides -->
 
-    <!-- Slides -->
-
-    <!-- Controls -->
-    <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleIndicators"
-      data-mdb-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previo</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleIndicators"
-      data-mdb-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Siguiente</span>
-    </button>
-    <!-- Controls -->
-
-    <!-- Thumbnails -->
-    <div class="carousel-indicators imagenProducto" style="margin-bottom: -20px;">
-      <% producto.imagenes.forEach( ( imagen , i )=> { %>
-
-        <button type="button" data-mdb-target="#carouselExampleIndicators" data-mdb-slide-to="<%= i %> "
-          class="<%= i === 0? 'active':''%>" aria-current="true" aria-label="Slide <%= i %> "
-          style="width: 100px;">
-          <img class="d-block w-100" src="<%= imagen.thumbnail %>" class="img-fluid" />
-        </button>
-        <% }) %>
-
-    </div>
-    <!-- Thumbnails -->
-  </div>
   <!-- Carousel wrapper -->
               </div>
               <p style="font-weight: 600; color: #575757;" class="titulo text-start">
