@@ -1,0 +1,45 @@
+<% layout('layouts/boilerplate')%>
+<div class="container">
+    <nav class="indicadorDePagina px-4 d-flex mt-4" aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/administrador"><span class="mx-1"><img src="/svg/arrowBack.svg" alt="atras"></span>
+          Administrador</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> Editar fotos de portada <%= producto.titulo %> </li>
+      </ol>
+    </nav>
+
+  </div>
+<div class="container">
+    <div class="row mt-3 justify-content-center">
+        <h4 class="h4">Editar foto de portada para <%= producto.titulo %></h4>
+        <div class="col-12 col-lg-6 ">
+          <div class="p-3">
+            <p class="lead">Imagen de portada actual</p>
+            <img class="img-fluid" src="<%= producto.imagenDePortadaProducto.url %>" alt="">
+        </div>
+           
+        <form action="/administrador/editar-portada/<%= producto._id %>" method="post"  enctype="multipart/form-data">
+ 
+    
+     
+            <div class="mb-3">
+                <label for="imagenDePortadaProducto" class="form-label">Actualizar Imagen de portada</label>
+                <input class="form-control" name="imagenDePortadaProducto" type="file" id="imagenDePortadaProducto"  required>
+             <div class="previwIMG">
+              <p class="text-muted">
+                Pre-visualización
+              </p>
+                <img src="" alt="Preview de Imagen de portada de producto">
+             </div>
+            </div>
+
+  
+
+            
+            <button type="submit" class="btn btn-primary px-5 py-3">Actualizar</button>
+        </form>
+    </div>
+    <div class="col-4"></div>
+</div>
+ 
+</div>

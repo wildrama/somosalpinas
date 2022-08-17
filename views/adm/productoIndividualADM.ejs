@@ -95,7 +95,9 @@
                 </p>
                 <% } %> 
            
-
+                <div class="text-center p-3">
+                    <img src="<%= producto.imagenDePortadaProducto[0].url %>" alt="">
+                </div>
               <div class="d-flex   justify-content-around py-4">
                   
            
@@ -129,7 +131,9 @@
               
 
                 <a href="/administrador/<%= producto._id %>/editar" class="btn btn-outline-primary">Editar producto</a>
-                <a href="/administrador/<%= producto._id %>/editar-foto" class="btn btn-outline-primary">Editar foto</a>
+                <a href="/administrador/<%= producto._id %>/editar-foto" class="btn btn-outline-primary">Editar fotos</a>
+                <a href="/administrador/<%= producto._id %>/editar-portada" class="btn btn-outline-primary">Editar portada de producto</a>
+
 
               </div>
             </div>

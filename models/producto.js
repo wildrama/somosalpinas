@@ -41,7 +41,10 @@ const productoSchema = new Schema({
       type:String,
     },
     imagenes:[ImagenSchema],
-
+    imagenDePortadaProducto:[{
+       url : String,
+    filename: String,
+    }],
     caracteristicas:{
         type:String
 

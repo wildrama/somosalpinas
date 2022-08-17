@@ -12,7 +12,7 @@ const {cloudinary} = require('../cloudinary/index');
 
 const multer = require('multer');
 const upload = multer({storage});
-  
+const uploadMultiple = upload.fields([{ name: 'imagenDePortadaProducto', maxCount: 1 }, { name: 'imagenes', maxCount: 10 }])
 
 // CRUD ADMINNN
 // router.get('/inicio', catchAsync(async(req,res)=>{
@@ -39,14 +39,18 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   }));
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
   
-  router.post('/',isLoggedIn,  upload.array('imagenes'),catchAsync( async (req,res)=>{
-console.log(req.body)
+  router.post('/',isLoggedIn,  uploadMultiple,catchAsync( async (req,res)=>{
+console.log(req.files)
 const productoBody = req.body
     const nuevoPRODUCTO = new Producto(productoBody);
-    nuevoPRODUCTO.imagenes = req.files.map(f => ({ url: f.path, filename: f.filename }));
+    nuevoPRODUCTO.imagenDePortadaProducto = req.files.imagenDePortadaProducto.map(f => ({ url: f.path, filename: f.filename }));
+
+    nuevoPRODUCTO.imagenes = req.files.imagenes.map(f => ({ url: f.path, filename: f.filename }));
+ 
     await nuevoPRODUCTO.save();
     res.redirect(`/administrador/${nuevoPRODUCTO._id}`)
     } ));
+
   
    
 // panel modo laser
@@ -133,7 +137,7 @@ const idML = req.params.id;
   // RENDER STOCK INDIVIDUAL
   router.get('/:id', isLoggedIn,catchAsync(async (req, res) =>{
     const {id} = req.params;
-
+    
    const producto = await Producto.findById(id).populate('categoriaId');
    res.render('adm/productoIndividualADM',{producto});
   } ))
@@ -163,8 +167,41 @@ const idML = req.params.id;
         res.render('adm/editarProductoFoto', {producto})
       }));
     
-    
+      router.get('/:id/editar-portada',isLoggedIn,catchAsync( async (req,res) =>{
+        const {id} = req.params;
+        const producto = await Producto.findById(id);
+        if (!producto) {
+          req.flash('error', 'No se puede encontrar el producto');
+          return res.redirect('/administrador');
+      }
+        res.render('adm/editarProductoPortada', {producto})
+      }));
+      
+  // post editar portada producto
+
+  router.post('/editar-portada/:id', upload.single('imagen'), isLoggedIn,catchAsync(async (req, res) => {
+    try{
+      const productoId = req.params.id;
   
+       const productoEncontrado = await Producto.findById(productoId);
+       productoEncontrado.imagenDePortadaProducto = {
+         url:req.file.path,
+         filename:req.file.filename
+       }
+       await productoEncontrado.save();
+       console.log("se actualizo la portada del producto" + productoEncontrado)
+   
+       req.flash('success', `Se actualizo la portada de ${productoEncontrado.nombre} correctamente`);
+       res.redirect(`/administrador`);
+    }catch(error){
+      req.flash('error', `No se pudo actualizar la portada del producto correctamente`);
+  
+      res.redirect(`/administrador`);
+  
+    }
+  
+   
+     })) ;
   // ENVIAR PUT REQUEST
   // ,upload.array('imagenes')
   router.put('/editar-foto/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
