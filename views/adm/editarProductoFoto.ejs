@@ -13,15 +13,15 @@
     <div class="row mt-3 justify-content-center">
         <h4 class="h4">Editar fotos publicación <%= producto.titulo %></h4>
         <div class="col-12 col-lg-6 ">
-            <form action="/administrador/editar-foto/<%= producto._id %>?_method=PUT" method="post"  enctype="multipart/form-data">
+            <form action="/administrador/<%= producto._id %>/editar-foto?_method=PUT" method="post"  enctype="multipart/form-data">
 
               
     
        
     
             <div class="mb-3">
-              <label for="imagenes" class="form-label">Actualizar Imagenes</label>
-              <input class="form-control" name="imagenes" type="file" id="imagenes" multiple>
+              <label for="imagenes2" class="form-label">Actualizar Imagenes</label>
+              <input class="form-control" name="imagenes2" type="file" id="imagenes2" multiple>
             </div>
 
               

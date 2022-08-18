@@ -12,7 +12,8 @@ const {cloudinary} = require('../cloudinary/index');
 
 const multer = require('multer');
 const upload = multer({storage});
-const uploadMultiple = upload.fields([{ name: 'imagenDePortadaProducto', maxCount: 1 }, { name: 'imagenes', maxCount: 10 }])
+const uploadMultipleImg = upload.fields([{ name: 'imagenDePortadaProducto', maxCount: 1 }, { name: 'imagenes', maxCount: 10 }])
+// const uploadMultiple = upload.fields([{ name: 'imagenes2', maxCount: 10 }]);
 
 // CRUD ADMINNN
 // router.get('/inicio', catchAsync(async(req,res)=>{
@@ -39,7 +40,7 @@ router.get('/', isLoggedIn,catchAsync(async (req, res) => {
   }));
   // ENVIAR DATOS DEL FORMULARIO A LA BBDD
   
-  router.post('/',isLoggedIn,  uploadMultiple,catchAsync( async (req,res)=>{
+  router.post('/',isLoggedIn,  uploadMultipleImg,catchAsync( async (req,res)=>{
 console.log(req.files)
 const productoBody = req.body
     const nuevoPRODUCTO = new Producto(productoBody);
@@ -179,7 +180,7 @@ const idML = req.params.id;
       
   // post editar portada producto
 
-  router.post('/editar-portada/:id', upload.single('imagen'), isLoggedIn,catchAsync(async (req, res) => {
+  router.post('/editar-portada/:id', upload.single('imagenDePortadaProducto3'), isLoggedIn,catchAsync(async (req, res) => {
     try{
       const productoId = req.params.id;
   
@@ -204,23 +205,21 @@ const idML = req.params.id;
      })) ;
   // ENVIAR PUT REQUEST
   // ,upload.array('imagenes')
-  router.put('/editar-foto/:id',upload.array('imagenes'), isLoggedIn,catchAsync( async (req,res)=>{
+  router.put('/:id/editar-foto',upload.array('imagenes2'), isLoggedIn,catchAsync( async (req,res)=>{
     const {id} = req.params;
     const upProducto = await Producto.findByIdAndUpdate(id, req.body);
-      console.log("upproducto"+ upProducto)
+      console.log( upProducto)
       const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
     upProducto.imagenes.push(...imgs);
-    console.log( imgs)
 
     await upProducto.save();
-    console.log("req.body.deleteImagenes" +req.body.deleteImagenes);
-
+    console.log("FOTOS ACTUALIZADAS" );
+    
     if (req.body.deleteImagenes) {
       for (let filename of req.body.deleteImagenes) {
           await cloudinary.uploader.destroy(filename);
       }
   }
-  console.log( imgs)
 
   await upProducto.updateOne({ $pull: { imagenes: { filename: { $in: req.body.deleteImagenes } } } })
 

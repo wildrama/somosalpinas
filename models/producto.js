@@ -28,10 +28,7 @@ const productoSchema = new Schema({
       required: true
     },
     
-    categoria: {
-      type: String,
-      enum: ['Cajas','Pizarra', 'DUO','Mapas','ABC','Memotest','Sellos','Dominos','DeYapa']
-    },
+
     categoriaId:{
       type: Schema.Types.ObjectId,
       ref:'Categoria',
